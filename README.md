@@ -15,7 +15,10 @@
 
 <div align="center">
 
-<img src="https://github.com/thiago082882/ChatApp/assets/93166095/98a95093-689b-429b-bbcf-f7fe6793336b" width="200">
+<img src="https://github.com/thiago082882/ecommerceappmvvm/assets/93166095/9dfea267-0a8b-4a88-bc7e-cf17b1480407" width="200">
+
+<img src="https://github.com/thiago082882/ecommerceappmvvm/assets/93166095/f5d27f36-33ba-4451-ab56-ae1af00b95fe" width="200">
+
 
 
 

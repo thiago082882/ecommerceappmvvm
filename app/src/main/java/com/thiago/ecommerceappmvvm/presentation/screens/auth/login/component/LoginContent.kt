@@ -43,7 +43,6 @@ import com.thiago.ecommerceappmvvm.presentation.components.DefaultTextField
 import com.thiago.ecommerceappmvvm.presentation.navigation.screen.AuthScreen
 import com.thiago.ecommerceappmvvm.presentation.screens.auth.login.LoginViewModel
 import com.thiago.ecommerceappmvvm.presentation.ui.theme.Blue700
-import com.thiago.ecommerceappmvvm.presentation.ui.theme.Teal500
 
 @Composable
 fun LoginContent(
@@ -161,7 +160,7 @@ fun LoginContent(
                         .fillMaxWidth()
                         .height(50.dp),
                     text = "LOGIN",
-                    onClick = { vm.validateForm()}
+                    onClick = { vm.login()}
 
                 )
                 Spacer(modifier = Modifier.height(10.dp))

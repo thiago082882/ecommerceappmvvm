@@ -57,6 +57,8 @@ fun LoginContent(
     LaunchedEffect(key1 = vm.errorMessage){
         if(vm.errorMessage != ""){
             Toast.makeText(context , vm.errorMessage, Toast.LENGTH_LONG).show()
+            vm.errorMessage = ""
+
         }
     }
 

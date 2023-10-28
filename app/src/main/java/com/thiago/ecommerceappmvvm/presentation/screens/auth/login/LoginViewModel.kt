@@ -6,10 +6,12 @@ import android.util.Patterns
 import androidx.compose.runtime.*
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.thiago.ecommerceappmvvm.domain.models.User
+import com.thiago.ecommerceappmvvm.domain.models.AuthResponse
 import com.thiago.ecommerceappmvvm.domain.useCase.auth.AuthUseCase
-import com.thiago.ecommerceappmvvm.domain.util.Response
+import com.thiago.ecommerceappmvvm.domain.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -26,15 +28,31 @@ class LoginViewModel @Inject constructor(private val authUseCase: AuthUseCase) :
 
 
     var errorMessage by mutableStateOf("")
-        private set
+//        private set
 
     //Login Response
 
-    var loginResponse by mutableStateOf<Response<User>?>(null)
+     var loginResponse by mutableStateOf<Resource<AuthResponse>?>(null)
         private set
+
+    init {
+        getSessionData()
+    }
+
+    fun saveSession(authResponse: AuthResponse) = viewModelScope.launch {
+        authUseCase.saveSession(authResponse)
+    }
+
+    fun getSessionData() = viewModelScope.launch {
+        authUseCase.getSessionData().collect(){data->
+            if(!data.token.isNullOrBlank()){
+                loginResponse = Resource.Success(data)
+            }
+        }
+    }
     fun login() = viewModelScope.launch {
         if(isvalidForm()){
-            loginResponse = Response.Loading // Esperando uma resposta
+            loginResponse = Resource.Loading // Esperando uma resposta
             val result =authUseCase.login(state.email,state.password)//Retorna uma resposta
             loginResponse = result // Se foi sucesso ou error
             Log.d("LoginViewModel", "Response: $loginResponse")
@@ -51,7 +69,7 @@ class LoginViewModel @Inject constructor(private val authUseCase: AuthUseCase) :
         state = state.copy(password = password)
     }
 
-    fun isvalidForm() : Boolean  {
+    private fun isvalidForm() : Boolean  {
         if (!Patterns.EMAIL_ADDRESS.matcher(state.email).matches()) {
             errorMessage = "O email não é valido"
             return false
@@ -59,6 +77,7 @@ class LoginViewModel @Inject constructor(private val authUseCase: AuthUseCase) :
             errorMessage = "A senha deverá conter pelo menos 6 caracteres"
             return false
         }
+
         return true
 
     }

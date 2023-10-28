@@ -16,6 +16,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.thiago.ecommerceappmvvm.presentation.components.DefaultTopBar
 import com.thiago.ecommerceappmvvm.presentation.screens.auth.login.LoginScreen
+import com.thiago.ecommerceappmvvm.presentation.screens.auth.register.components.Register
 import com.thiago.ecommerceappmvvm.presentation.screens.auth.register.components.RegisterContent
 import com.thiago.ecommerceappmvvm.presentation.ui.theme.EcommerceAppMVVMTheme
 
@@ -35,6 +36,7 @@ fun RegisterScreen(navController: NavHostController) {
      RegisterContent()
 
     }
+    Register(navController = navController)
 
 }
 

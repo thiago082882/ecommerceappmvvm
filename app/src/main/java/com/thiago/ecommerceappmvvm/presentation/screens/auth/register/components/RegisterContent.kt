@@ -55,6 +55,7 @@ fun RegisterContent(vm: RegisterViewModel = hiltViewModel()) {
     LaunchedEffect(key1 = vm.errorMessage){
         if(vm.errorMessage != ""){
             Toast.makeText(context , vm.errorMessage, Toast.LENGTH_LONG).show()
+            vm.errorMessage = ""
         }
     }
 
@@ -170,7 +171,7 @@ fun RegisterContent(vm: RegisterViewModel = hiltViewModel()) {
                             .fillMaxWidth()
                             .height(50.dp),
                         text = "CONFIRMAR",
-                        onClick = { vm.validateForm()}
+                        onClick = { vm.register()}
                     )
                 }
             }

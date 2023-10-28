@@ -20,6 +20,9 @@ data class User(
     val image:String?=null,
     @SerializedName("notification_token")
     val notificationToken:String?=null,
+    @SerializedName("roles")
+    val roles:ArrayList<Rol>?=null,
+
 
 ){
 

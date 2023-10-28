@@ -1,7 +1,9 @@
 package com.thiago.ecommerceappmvvm.data.service
 
+import com.thiago.ecommerceappmvvm.domain.models.AuthResponse
 import com.thiago.ecommerceappmvvm.domain.models.User
 import retrofit2.Response
+import retrofit2.http.Body
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
@@ -14,5 +16,11 @@ interface AuthService {
     suspend fun login(
         @Field("email") email: String,
         @Field("password") password: String
-    ): Response<User>
+    ): Response<AuthResponse>
+
+    @FormUrlEncoded
+    @POST("auth/register")
+    suspend fun register(
+        @Body() user: User,
+    ): Response<AuthResponse>
 }

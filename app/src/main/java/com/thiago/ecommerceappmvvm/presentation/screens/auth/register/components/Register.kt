@@ -9,6 +9,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.thiago.ecommerceappmvvm.domain.util.Resource
 import com.thiago.ecommerceappmvvm.presentation.components.ProgressBar
+import com.thiago.ecommerceappmvvm.presentation.navigation.Graph
 import com.thiago.ecommerceappmvvm.presentation.navigation.screen.AuthScreen
 import com.thiago.ecommerceappmvvm.presentation.screens.auth.register.RegisterViewModel
 
@@ -19,12 +20,11 @@ fun Register(navController: NavHostController, vm: RegisterViewModel = hiltViewM
         Resource.Loading -> { ProgressBar() }
         is Resource.Success -> {
             LaunchedEffect(Unit) {
-//               vm.saveSession(response.data)
-//                navController.navigate(route = AuthScreen.Home.route) {
-//                    popUpTo(AuthScreen.Login.route) {
-//                        inclusive = true
-//                    }
-//                }
+                navController.navigate(route = Graph.CLIENT) {
+                    popUpTo(Graph.AUTH) {
+                        inclusive = true
+                    }
+                }
             }
         }
         is Resource.Failure -> {

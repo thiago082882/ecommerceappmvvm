@@ -10,6 +10,9 @@ import javax.inject.Inject
 @HiltViewModel
 class ProfileViewModel @Inject constructor(private val authUseCase: AuthUseCase):ViewModel() {
 
+    fun getSessionData()= viewModelScope.launch {
+
+    }
 fun logout() = viewModelScope.launch {
     authUseCase.logout
 }

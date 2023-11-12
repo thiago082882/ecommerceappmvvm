@@ -9,8 +9,7 @@ import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.thiago.ecommerceappmvvm.presentation.navigation.graph.RootNavGraph
-import com.thiago.ecommerceappmvvm.presentation.screens.auth.login.LoginScreen
+import com.thiago.ecommerceappmvvm.presentation.navigation.graph.root.RootNavGraph
 import com.thiago.ecommerceappmvvm.presentation.ui.theme.EcommerceAppMVVMTheme
 import dagger.hilt.android.AndroidEntryPoint
 

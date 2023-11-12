@@ -40,7 +40,7 @@ import androidx.navigation.NavHostController
 import com.thiago.ecommerceappmvvm.R
 import com.thiago.ecommerceappmvvm.presentation.components.DefaultButton
 import com.thiago.ecommerceappmvvm.presentation.components.DefaultTextField
-import com.thiago.ecommerceappmvvm.presentation.navigation.screen.AuthScreen
+import com.thiago.ecommerceappmvvm.presentation.navigation.screen.auth.AuthScreen
 import com.thiago.ecommerceappmvvm.presentation.screens.auth.login.LoginViewModel
 import com.thiago.ecommerceappmvvm.presentation.ui.theme.Blue700
 

@@ -1,4 +1,4 @@
-package com.thiago.ecommerceappmvvm.presentation.navigation.screen
+package com.thiago.ecommerceappmvvm.presentation.navigation.screen.admin
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.List
@@ -6,23 +6,23 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.ThumbUp
 import androidx.compose.ui.graphics.vector.ImageVector
 
-sealed class ClientScreen(
+sealed class AdminScreen(
     val route : String,
     val title : String,
     val icon:ImageVector
 ){
-    object  categoryList : ClientScreen(
-        route = "client/category/list",
+    object  categoryList : AdminScreen(
+        route = "admin/category/list",
         title = "categorias",
         icon = Icons.Default.List
     )
-    object  productList : ClientScreen(
-        route = "client/product/list",
+    object  productList : AdminScreen(
+        route = "admin/product/list",
         title = "produtos",
         icon = Icons.Default.ThumbUp
     )
-    object  Profile : ClientScreen(
-        route = "client/profile/list",
+    object  Profile : AdminScreen(
+        route = "admin/profile/list",
         title = "categorias",
         icon = Icons.Default.Person
     )

@@ -13,7 +13,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.thiago.ecommerceappmvvm.domain.util.Resource
 import com.thiago.ecommerceappmvvm.presentation.navigation.Graph
-import com.thiago.ecommerceappmvvm.presentation.navigation.screen.AuthScreen
 import com.thiago.ecommerceappmvvm.presentation.screens.auth.login.LoginViewModel
 
 @Composable

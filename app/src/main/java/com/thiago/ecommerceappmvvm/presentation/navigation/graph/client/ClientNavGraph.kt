@@ -1,14 +1,15 @@
-package com.thiago.ecommerceappmvvm.presentation.navigation.graph
+package com.thiago.ecommerceappmvvm.presentation.navigation.graph.client
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.thiago.ecommerceappmvvm.presentation.navigation.Graph
-import com.thiago.ecommerceappmvvm.presentation.navigation.screen.ClientScreen
+import com.thiago.ecommerceappmvvm.presentation.navigation.graph.profile.ProfileNavGraph
+import com.thiago.ecommerceappmvvm.presentation.navigation.screen.client.ClientScreen
 import com.thiago.ecommerceappmvvm.presentation.screens.client.category.list.ClientCategoryListScreen
 import com.thiago.ecommerceappmvvm.presentation.screens.client.product.list.ClientProductListScreen
-import com.thiago.ecommerceappmvvm.presentation.screens.profile.ProfileScreen
+import com.thiago.ecommerceappmvvm.presentation.screens.profile.info.ProfileScreen
 
 
 @Composable
@@ -29,7 +30,8 @@ fun ClientNavGraph(navController: NavHostController) {
         }
 
         composable(route = ClientScreen.Profile.route) {
-            ProfileScreen()
+            ProfileScreen(navController)
         }
+        ProfileNavGraph(navController)
     }
 }

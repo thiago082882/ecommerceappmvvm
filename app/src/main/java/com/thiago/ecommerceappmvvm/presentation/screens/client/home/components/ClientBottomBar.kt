@@ -5,7 +5,7 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.getValue
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.thiago.ecommerceappmvvm.presentation.navigation.screen.ClientScreen
+import com.thiago.ecommerceappmvvm.presentation.navigation.screen.client.ClientScreen
 
 @Composable
 fun ClientBottomBar(navController: NavHostController) {

@@ -34,17 +34,19 @@ import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
+import coil.compose.AsyncImage
 import com.thiago.ecommerceappmvvm.R
 import com.thiago.ecommerceappmvvm.presentation.MainActivity
 import com.thiago.ecommerceappmvvm.presentation.components.DefaultButton
-import com.thiago.ecommerceappmvvm.presentation.screens.profile.ProfileViewModel
+import com.thiago.ecommerceappmvvm.presentation.navigation.Graph
+import com.thiago.ecommerceappmvvm.presentation.screens.profile.info.ProfileViewModel
 
 @Composable
-fun ProfileContent(vm : ProfileViewModel = hiltViewModel()) {
+fun ProfileContent(navController: NavHostController,vm: ProfileViewModel = hiltViewModel()) {
     val activity = LocalContext.current as? Activity
     Box(modifier = Modifier.padding(bottom = 55.dp)) {
         Image(
@@ -65,9 +67,9 @@ fun ProfileContent(vm : ProfileViewModel = hiltViewModel()) {
                     .align(Alignment.End)
                     .padding(end = 15.dp, top = 15.dp),
                 onClick = {
-                    //vm.logout()
+                    vm.logout()
                     activity?.finish()
-                    activity?.startActivity(Intent(activity,MainActivity::class.java))
+                    activity?.startActivity(Intent(activity, MainActivity::class.java))
                 }
             ) {
                 Icon(
@@ -77,15 +79,29 @@ fun ProfileContent(vm : ProfileViewModel = hiltViewModel()) {
                     tint = Color.White
                 )
 
+                }
+            if (!vm.user?.image.isNullOrBlank()) {
+                AsyncImage(
+                    modifier = Modifier
+                        .size(150.dp)
+                        .clip(CircleShape)
+                        .align(Alignment.CenterHorizontally),
+                    model = vm.user?.image,
+                    contentDescription = "",
+                    contentScale = ContentScale.Crop
+                )
+            }else{
+                Image(
+                    modifier = Modifier
+                        .size(150.dp)
+                        .clip(CircleShape)
+                        .align(Alignment.CenterHorizontally),
+                    painter = painterResource(id = R.drawable.user_image),
+                    contentDescription = ""
+                )
+
             }
-            Image(
-                modifier = Modifier
-                    .size(150.dp)
-                    .clip(CircleShape)
-                    .align(Alignment.CenterHorizontally),
-                painter = painterResource(id = R.drawable.user_image),
-                contentDescription = ""
-            )
+
             Spacer(modifier = Modifier.weight(1f))
             Card(
                 modifier = Modifier.fillMaxWidth(),
@@ -111,7 +127,7 @@ fun ProfileContent(vm : ProfileViewModel = hiltViewModel()) {
                             contentDescription = ""
                         )
                         Column(modifier = Modifier.padding(horizontal = 5.dp)) {
-                            Text(text = "Thiago Costa")
+                            Text(text = "${vm.user?.name } ${vm.user?.lastname }")
                             Text(text = "Nome do usuario", fontSize = 12.sp, color = Color.Gray)
 
                         }
@@ -131,7 +147,7 @@ fun ProfileContent(vm : ProfileViewModel = hiltViewModel()) {
                             contentDescription = ""
                         )
                         Column(modifier = Modifier.padding(horizontal = 5.dp)) {
-                            Text(text = "t@gmail.com")
+                            Text(text = "${vm.user?.email}")
                             Text(text = "Email", fontSize = 12.sp, color = Color.Gray)
 
                         }
@@ -151,7 +167,7 @@ fun ProfileContent(vm : ProfileViewModel = hiltViewModel()) {
                             contentDescription = ""
                         )
                         Column(modifier = Modifier.padding(horizontal = 5.dp)) {
-                            Text(text = "00000000")
+                            Text(text = vm.user?.phone ?: "")
                             Text(text = "Telefone", fontSize = 12.sp, color = Color.Gray)
 
                         }
@@ -160,7 +176,11 @@ fun ProfileContent(vm : ProfileViewModel = hiltViewModel()) {
                     }
                     Spacer(modifier = Modifier.height(40.dp))
                     DefaultButton(
-                        modifier = Modifier.fillMaxWidth(), text = "Atualizar Informações" , onClick = { /*TODO*/ })
+                        modifier = Modifier.fillMaxWidth(),
+                        text = "Atualizar Informações",
+                        onClick = {
+                            navController.navigate(route = Graph.PROFILE)
+                        })
                 }
 
             }
@@ -168,7 +188,6 @@ fun ProfileContent(vm : ProfileViewModel = hiltViewModel()) {
         }
 
     }
-
 
 
 }

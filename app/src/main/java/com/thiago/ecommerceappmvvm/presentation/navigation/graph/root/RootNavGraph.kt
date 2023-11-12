@@ -1,11 +1,11 @@
-package com.thiago.ecommerceappmvvm.presentation.navigation.graph
+package com.thiago.ecommerceappmvvm.presentation.navigation.graph.root
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import com.thiago.ecommerceappmvvm.presentation.navigation.Graph
-import com.thiago.ecommerceappmvvm.presentation.screens.client.home.ClientHomeScreen
+import com.thiago.ecommerceappmvvm.presentation.navigation.graph.auth.AuthNavGraph
+import com.thiago.ecommerceappmvvm.presentation.navigation.graph.roles.RolesNavGraph
 
 
 @Composable

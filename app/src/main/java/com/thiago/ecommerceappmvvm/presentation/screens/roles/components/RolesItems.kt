@@ -16,7 +16,6 @@ import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import com.thiago.ecommerceappmvvm.domain.models.Rol
 import com.thiago.ecommerceappmvvm.presentation.navigation.Graph
-import com.thiago.ecommerceappmvvm.presentation.navigation.screen.AuthScreen
 
 
 @Composable

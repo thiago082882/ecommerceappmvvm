@@ -3,6 +3,7 @@ package com.thiago.ecommerceappmvvm.presentation.screens.profile.update.componen
 import android.app.Activity
 import android.content.Intent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -27,6 +28,8 @@ import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material.icons.outlined.Phone
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -36,6 +39,7 @@ import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -44,12 +48,22 @@ import com.thiago.ecommerceappmvvm.R
 import com.thiago.ecommerceappmvvm.presentation.MainActivity
 import com.thiago.ecommerceappmvvm.presentation.components.DefaultButton
 import com.thiago.ecommerceappmvvm.presentation.components.DefaultTextField
+import com.thiago.ecommerceappmvvm.presentation.components.DialogCapturePicture
 import com.thiago.ecommerceappmvvm.presentation.screens.profile.info.ProfileViewModel
 import com.thiago.ecommerceappmvvm.presentation.screens.profile.update.ProfileUpdateViewModel
 
 @Composable
 fun ProfileUpdateContent(vm: ProfileUpdateViewModel = hiltViewModel()) {
     val activity = LocalContext.current as? Activity
+    val state = vm.state
+    val stateDialog  = remember{ mutableStateOf(false) }
+    vm.resultingActivityHandler.handle()
+    DialogCapturePicture(
+        state = stateDialog,
+        takePhoto = { vm.takePhoto() },
+        pickImage = { vm.pickImage() }
+    )
+
     Box(modifier = Modifier) {
         Image(
             modifier = Modifier.fillMaxSize(),
@@ -63,24 +77,26 @@ fun ProfileUpdateContent(vm: ProfileUpdateViewModel = hiltViewModel()) {
             )
         )
         Column(modifier = Modifier.fillMaxWidth()) {
+            Spacer(modifier = Modifier.height(40.dp))
 
-
-            if (!vm.user?.image.isNullOrBlank()) {
+            if (!state.image.isNullOrBlank()) {
                 AsyncImage(
                     modifier = Modifier
                         .size(150.dp)
                         .clip(CircleShape)
-                        .align(Alignment.CenterHorizontally),
-                    model = vm.user?.image,
+                        .align(Alignment.CenterHorizontally)
+                        .clickable {  stateDialog.value=true},
+                    model = vm.state.image,
                     contentDescription = "",
                     contentScale = ContentScale.Crop
                 )
-            }else{
+            } else {
                 Image(
                     modifier = Modifier
                         .size(150.dp)
                         .clip(CircleShape)
-                        .align(Alignment.CenterHorizontally),
+                        .align(Alignment.CenterHorizontally)
+                        .clickable {  stateDialog.value=true},
                     painter = painterResource(id = R.drawable.user_image),
                     contentDescription = ""
                 )
@@ -99,24 +115,37 @@ fun ProfileUpdateContent(vm: ProfileUpdateViewModel = hiltViewModel()) {
                 Column(
                     modifier = Modifier.padding(20.dp)
                 ) {
+                    Text(
+                        modifier = Modifier.padding(bottom = 20.dp),
+                        text = "ATUALIZAR",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 20.sp,
+                        color = Color.Black
+                    )
                     DefaultTextField(
                         modifier = Modifier.fillMaxWidth(),
-                        value = "",
-                        onValueChange ={} ,
+                        value = state.name,
+                        onValueChange = {
+                            vm.onNameInput(it)
+                        },
                         label = "Nome",
                         icon = Icons.Default.Person
                     )
                     DefaultTextField(
                         modifier = Modifier.fillMaxWidth(),
-                        value = "",
-                        onValueChange ={} ,
+                        value = state.lastname,
+                        onValueChange = {
+                                        vm.onLastNameInput(it)
+                        },
                         label = "Sobrenome",
                         icon = Icons.Outlined.Person
                     )
                     DefaultTextField(
                         modifier = Modifier.fillMaxWidth(),
-                        value = "",
-                        onValueChange ={} ,
+                        value = state.phone,
+                        onValueChange = {
+                                        vm.onPhoneInput(it)
+                        },
                         label = "Telefone",
                         icon = Icons.Default.Phone
                     )

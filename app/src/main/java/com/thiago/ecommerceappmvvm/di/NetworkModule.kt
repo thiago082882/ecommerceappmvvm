@@ -2,6 +2,7 @@ package com.thiago.ecommerceappmvvm.di
 
 import com.thiago.ecommerceappmvvm.core.Config.BASE_URL
 import com.thiago.ecommerceappmvvm.data.service.AuthService
+import com.thiago.ecommerceappmvvm.data.service.UsersService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,5 +31,9 @@ object NetworkModule {
         return retrofit.create(AuthService::class.java)
     }
 
-
+    @Provides
+    @Singleton
+    fun provideUsersService(retrofit: Retrofit): UsersService {
+        return retrofit.create(UsersService::class.java)
+    }
 }

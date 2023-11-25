@@ -179,7 +179,7 @@ fun ProfileContent(navController: NavHostController,vm: ProfileViewModel = hiltV
                         modifier = Modifier.fillMaxWidth(),
                         text = "Atualizar Informações",
                         onClick = {
-                            navController.navigate(route = Graph.PROFILE)
+                            navController.navigate(route = "${Graph.PROFILE}/${vm.user?.toJson()}")
                         })
                 }
 

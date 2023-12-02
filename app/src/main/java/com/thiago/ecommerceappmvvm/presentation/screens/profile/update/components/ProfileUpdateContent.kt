@@ -154,7 +154,8 @@ fun ProfileUpdateContent(vm: ProfileUpdateViewModel = hiltViewModel()) {
                     DefaultButton(
                         modifier = Modifier.fillMaxWidth(),
                         text = "Confirmar",
-                        onClick = { /*TODO*/ })
+                        onClick = { vm.onUpdate() }
+                    )
                 }
 
             }

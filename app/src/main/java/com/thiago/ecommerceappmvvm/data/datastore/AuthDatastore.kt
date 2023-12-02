@@ -1,6 +1,5 @@
 package com.thiago.ecommerceappmvvm.data.datastore
 
-import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
@@ -13,15 +12,15 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.runBlocking
 
-class AuthDataStore  constructor(private val dataStore:DataStore<Preferences>){
+class AuthDatastore constructor(private val dataStore: DataStore<Preferences>) {
 
-    suspend fun saveUser(authResponse: AuthResponse){
+    suspend fun save(authResponse: AuthResponse) {
         val dataStoreKey = stringPreferencesKey(AUTH_KEY)
-        dataStore.edit { pref->
-
+        dataStore.edit { pref ->
             pref[dataStoreKey] = authResponse.toJson()
         }
     }
+
     suspend fun update(user: User) {
         val dataStoreKey = stringPreferencesKey(AUTH_KEY)
         val authResponse = runBlocking {
@@ -38,21 +37,24 @@ class AuthDataStore  constructor(private val dataStore:DataStore<Preferences>){
             pref[dataStoreKey] = authResponse.toJson()
         }
     }
-    suspend fun delete(){
-        val dataStoreKey = stringPreferencesKey(AUTH_KEY)
-        dataStore.edit { pref->
 
+    suspend fun delete() {
+        val dataStoreKey = stringPreferencesKey(AUTH_KEY)
+        dataStore.edit { pref ->
             pref.remove(dataStoreKey)
         }
     }
-   fun  getData(): Flow<AuthResponse> {
+
+    fun getData(): Flow<AuthResponse> {
         val dataStoreKey = stringPreferencesKey(AUTH_KEY)
         return dataStore.data.map { pref ->
             if (pref[dataStoreKey] != null) {
                 AuthResponse.fromJson(pref[dataStoreKey]!!)
-            }else{
+            }
+            else {
                 AuthResponse()
             }
         }
     }
+
 }

@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import com.thiago.ecommerceappmvvm.presentation.components.DefaultTopBar
 import com.thiago.ecommerceappmvvm.presentation.screens.profile.update.components.ProfileUpdateContent
+import com.thiago.ecommerceappmvvm.presentation.screens.profile.update.components.UpdateUser
 
 @Composable
 fun ProfileUpdateScreen(navController: NavHostController, userParam : String) {
@@ -14,5 +15,5 @@ fun ProfileUpdateScreen(navController: NavHostController, userParam : String) {
     Scaffold(topBar = { DefaultTopBar(title = "Atualizar perfil",navController=navController, upAvailable = true)}) {
         ProfileUpdateContent()
     }
-
+    UpdateUser()
 }

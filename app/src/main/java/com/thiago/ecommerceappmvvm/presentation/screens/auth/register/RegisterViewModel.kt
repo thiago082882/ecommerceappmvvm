@@ -8,6 +8,7 @@ import com.thiago.ecommerceappmvvm.domain.models.AuthResponse
 import com.thiago.ecommerceappmvvm.domain.models.User
 import com.thiago.ecommerceappmvvm.domain.useCase.auth.AuthUseCase
 import com.thiago.ecommerceappmvvm.domain.util.Resource
+import com.thiago.ecommerceappmvvm.presentation.screens.auth.register.mapper.toUser
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -30,21 +31,27 @@ class RegisterViewModel @Inject constructor(private val  authUseCase: AuthUseCas
     var registerResponse by mutableStateOf<Resource<AuthResponse>?>(null)
         private set
 
-    fun register() = viewModelScope.launch {
-        if(isValidForm()) {
-            val user = User(
-                name = state.name,
-                lastname = state.lastname,
-                phone = state.phone,
-                email = state.email,
-                password = state.password
-            )
-            registerResponse = Resource.Loading
-            val result = authUseCase.register(user)
-            registerResponse = result // DATA / ERROR
-        }
+//    fun register() = viewModelScope.launch {
+//        if(isValidForm()) {
+//            val user = User(
+//                name = state.name,
+//                lastname = state.lastname,
+//                phone = state.phone,
+//                email = state.email,
+//                password = state.password
+//            )
+//            registerResponse = Resource.Loading
+//            val result = authUseCase.register(user)
+//            registerResponse = result // DATA / ERROR
+//        }
+//    }
+fun register() = viewModelScope.launch {
+    if (isValidForm()) {
+        registerResponse = Resource.Loading
+        val result = authUseCase.register(state.toUser())
+        registerResponse = result // DATA / ERROR
     }
-
+}
     fun onNameInput(name: String) {
         state = state.copy(name = name)
     }

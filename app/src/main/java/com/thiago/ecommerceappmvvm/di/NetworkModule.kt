@@ -4,6 +4,7 @@ import com.thiago.ecommerceappmvvm.core.Config
 import com.thiago.ecommerceappmvvm.core.Config.BASE_URL
 import com.thiago.ecommerceappmvvm.data.datastore.AuthDatastore
 import com.thiago.ecommerceappmvvm.data.service.AuthService
+import com.thiago.ecommerceappmvvm.data.service.CategoriesService
 import com.thiago.ecommerceappmvvm.data.service.UsersService
 import dagger.Module
 import dagger.Provides
@@ -55,4 +56,9 @@ object NetworkModule {
         return retrofit.create(UsersService::class.java)
     }
 
+    @Provides
+    @Singleton
+    fun provideCategoryService(retrofit: Retrofit): CategoriesService {
+        return retrofit.create(CategoriesService::class.java)
+    }
 }

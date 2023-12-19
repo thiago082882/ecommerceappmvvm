@@ -54,7 +54,7 @@ import com.thiago.ecommerceappmvvm.presentation.screens.profile.update.ProfileUp
 
 @Composable
 fun ProfileUpdateContent(vm: ProfileUpdateViewModel = hiltViewModel()) {
-    val activity = LocalContext.current as? Activity
+    var activity = LocalContext.current as? Activity
     val state = vm.state
     val stateDialog  = remember{ mutableStateOf(false) }
     vm.resultingActivityHandler.handle()

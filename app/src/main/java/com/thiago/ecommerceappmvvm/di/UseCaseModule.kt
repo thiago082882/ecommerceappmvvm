@@ -4,6 +4,7 @@ import com.thiago.ecommerceappmvvm.data.repository.dataSource.AuthRemoteDataSour
 import com.thiago.ecommerceappmvvm.data.repository.dataSourceImpl.AuthRemoteDataSourceImpl
 import com.thiago.ecommerceappmvvm.data.service.AuthService
 import com.thiago.ecommerceappmvvm.domain.repository.AuthRepository
+import com.thiago.ecommerceappmvvm.domain.repository.CategoriesRepository
 import com.thiago.ecommerceappmvvm.domain.repository.UsersRepository
 import com.thiago.ecommerceappmvvm.domain.useCase.auth.AuthUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.auth.GetSessionDataUseCase
@@ -12,6 +13,8 @@ import com.thiago.ecommerceappmvvm.domain.useCase.auth.LogoutUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.auth.RegisterUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.auth.SaveSessionUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.auth.UpdateSessionUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.categories.CategoriesUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.categories.CreateCategoryUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.users.UpdateUserUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.users.UpdateUserWithImageUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.users.UsersUseCase
@@ -36,6 +39,12 @@ object UseCaseModule {
     fun provideUsersUseCase(usersRepository: UsersRepository) = UsersUseCase(
         updateUser = UpdateUserUseCase(usersRepository),
         updateUserWithImage = UpdateUserWithImageUseCase(usersRepository)
+    )
+
+    @Provides
+    fun provideCategoriesUseCase(categoriesRepository: CategoriesRepository) = CategoriesUseCase(
+            createCategory = CreateCategoryUseCase(categoriesRepository)
+
     )
 
 }

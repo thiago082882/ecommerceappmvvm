@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
-import com.thiago.ecommerceappmvvm.domain.models.Rol
+import com.thiago.ecommerceappmvvm.domain.model.Rol
 import com.thiago.ecommerceappmvvm.presentation.navigation.Graph
 
 

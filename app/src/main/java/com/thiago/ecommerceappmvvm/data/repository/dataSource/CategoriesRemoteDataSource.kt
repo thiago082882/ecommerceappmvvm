@@ -1,7 +1,6 @@
 package com.thiago.ecommerceappmvvm.data.repository.dataSource
 
-import com.thiago.ecommerceappmvvm.domain.models.Category
-import com.thiago.ecommerceappmvvm.domain.models.User
+import com.thiago.ecommerceappmvvm.domain.model.Category
 import retrofit2.Response
 import java.io.File
 

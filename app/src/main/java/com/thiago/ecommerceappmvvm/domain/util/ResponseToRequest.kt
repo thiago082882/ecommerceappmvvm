@@ -1,7 +1,7 @@
 package com.thiago.ecommerceappmvvm.domain.util
 
 import android.util.Log
-import com.thiago.ecommerceappmvvm.domain.models.ErrorResponse
+import com.thiago.ecommerceappmvvm.domain.model.ErrorResponse
 import retrofit2.HttpException
 import retrofit2.Response
 import java.io.IOException

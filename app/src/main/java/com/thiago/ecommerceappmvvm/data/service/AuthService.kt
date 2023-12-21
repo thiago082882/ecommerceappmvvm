@@ -1,7 +1,7 @@
 package com.thiago.ecommerceappmvvm.data.service
 
-import com.thiago.ecommerceappmvvm.domain.models.AuthResponse
-import com.thiago.ecommerceappmvvm.domain.models.User
+import com.thiago.ecommerceappmvvm.domain.model.AuthResponse
+import com.thiago.ecommerceappmvvm.domain.model.User
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.Field

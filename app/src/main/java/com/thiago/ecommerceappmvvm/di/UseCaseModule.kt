@@ -15,6 +15,9 @@ import com.thiago.ecommerceappmvvm.domain.useCase.auth.SaveSessionUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.auth.UpdateSessionUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.categories.CategoriesUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.categories.CreateCategoryUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.categories.GetCategoriesUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.categories.UpdateCategoryUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.categories.UpdateCategoryWithImageUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.users.UpdateUserUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.users.UpdateUserWithImageUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.users.UsersUseCase
@@ -27,14 +30,15 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 object UseCaseModule {
     @Provides
-   fun provideAuthUseCase(authRepository: AuthRepository) = AuthUseCase(
-       login = LoginUseCase(authRepository),
-       register = RegisterUseCase(authRepository),
-       saveSession = SaveSessionUseCase(authRepository),
-       getSessionData = GetSessionDataUseCase(authRepository),
+    fun provideAuthUseCase(authRepository: AuthRepository) = AuthUseCase(
+        login = LoginUseCase(authRepository),
+        register = RegisterUseCase(authRepository),
+        saveSession = SaveSessionUseCase(authRepository),
+        getSessionData = GetSessionDataUseCase(authRepository),
         logout = LogoutUseCase(authRepository),
         updateSession = UpdateSessionUseCase(authRepository)
-   )
+    )
+
     @Provides
     fun provideUsersUseCase(usersRepository: UsersRepository) = UsersUseCase(
         updateUser = UpdateUserUseCase(usersRepository),
@@ -43,7 +47,10 @@ object UseCaseModule {
 
     @Provides
     fun provideCategoriesUseCase(categoriesRepository: CategoriesRepository) = CategoriesUseCase(
-            createCategory = CreateCategoryUseCase(categoriesRepository)
+        createCategory = CreateCategoryUseCase(categoriesRepository),
+        getCategoriesUseCase = GetCategoriesUseCase(categoriesRepository),
+        updateCategory = UpdateCategoryUseCase(categoriesRepository),
+        updateCategoryWithImage = UpdateCategoryWithImageUseCase(categoriesRepository)
 
     )
 

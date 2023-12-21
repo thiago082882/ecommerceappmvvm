@@ -1,4 +1,4 @@
-package com.thiago.ecommerceappmvvm.domain.models
+package com.thiago.ecommerceappmvvm.domain.model
 
 import com.google.gson.Gson
 

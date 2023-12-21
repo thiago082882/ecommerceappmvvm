@@ -1,6 +1,6 @@
 package com.thiago.ecommerceappmvvm.domain.util
 
-import com.thiago.ecommerceappmvvm.domain.models.ErrorResponse
+import com.thiago.ecommerceappmvvm.domain.model.ErrorResponse
 import android.util.Log
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

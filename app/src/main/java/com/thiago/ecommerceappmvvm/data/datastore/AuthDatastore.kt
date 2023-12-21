@@ -5,8 +5,8 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import com.thiago.ecommerceappmvvm.core.Config.AUTH_KEY
-import com.thiago.ecommerceappmvvm.domain.models.AuthResponse
-import com.thiago.ecommerceappmvvm.domain.models.User
+import com.thiago.ecommerceappmvvm.domain.model.AuthResponse
+import com.thiago.ecommerceappmvvm.domain.model.User
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map

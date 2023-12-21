@@ -1,12 +1,11 @@
 package com.thiago.ecommerceappmvvm.presentation.screens.profile.update
 
 import android.content.Context
-import android.util.Log
 import androidx.compose.runtime.*
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.thiago.ecommerceappmvvm.domain.models.User
+import com.thiago.ecommerceappmvvm.domain.model.User
 import com.thiago.ecommerceappmvvm.domain.useCase.auth.AuthUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.users.UsersUseCase
 import com.thiago.ecommerceappmvvm.domain.util.Resource

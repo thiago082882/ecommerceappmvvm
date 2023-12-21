@@ -1,7 +1,7 @@
 package com.thiago.ecommerceappmvvm.domain.repository
 
-import com.thiago.ecommerceappmvvm.domain.models.AuthResponse
-import com.thiago.ecommerceappmvvm.domain.models.User
+import com.thiago.ecommerceappmvvm.domain.model.AuthResponse
+import com.thiago.ecommerceappmvvm.domain.model.User
 import com.thiago.ecommerceappmvvm.domain.util.Resource
 import kotlinx.coroutines.flow.Flow
 

@@ -6,12 +6,10 @@ import android.util.Patterns
 import androidx.compose.runtime.*
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.thiago.ecommerceappmvvm.domain.models.AuthResponse
+import com.thiago.ecommerceappmvvm.domain.model.AuthResponse
 import com.thiago.ecommerceappmvvm.domain.useCase.auth.AuthUseCase
 import com.thiago.ecommerceappmvvm.domain.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

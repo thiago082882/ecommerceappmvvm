@@ -3,8 +3,7 @@ package com.thiago.ecommerceappmvvm.presentation.screens.profile.info
 import androidx.compose.runtime.*
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.thiago.ecommerceappmvvm.domain.models.AuthResponse
-import com.thiago.ecommerceappmvvm.domain.models.User
+import com.thiago.ecommerceappmvvm.domain.model.User
 import com.thiago.ecommerceappmvvm.domain.useCase.auth.AuthUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

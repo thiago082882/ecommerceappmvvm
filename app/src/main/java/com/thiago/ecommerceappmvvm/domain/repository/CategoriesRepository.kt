@@ -1,7 +1,7 @@
 package com.thiago.ecommerceappmvvm.domain.repository
 
 
-import com.thiago.ecommerceappmvvm.domain.models.Category
+import com.thiago.ecommerceappmvvm.domain.model.Category
 import com.thiago.ecommerceappmvvm.domain.util.Resource
 import kotlinx.coroutines.flow.Flow
 import java.io.File

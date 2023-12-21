@@ -2,8 +2,8 @@ package com.thiago.ecommerceappmvvm.data.repository.dataSourceImpl
 
 import com.thiago.ecommerceappmvvm.data.datastore.AuthDatastore
 import com.thiago.ecommerceappmvvm.data.repository.dataSource.AuthLocalDataSource
-import com.thiago.ecommerceappmvvm.domain.models.AuthResponse
-import com.thiago.ecommerceappmvvm.domain.models.User
+import com.thiago.ecommerceappmvvm.domain.model.AuthResponse
+import com.thiago.ecommerceappmvvm.domain.model.User
 import kotlinx.coroutines.flow.Flow
 
 class AuthLocalDataSourceImpl constructor(private val authDataStore: AuthDatastore) :AuthLocalDataSource{

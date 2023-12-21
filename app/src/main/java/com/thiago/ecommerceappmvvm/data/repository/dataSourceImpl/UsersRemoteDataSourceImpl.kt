@@ -3,7 +3,7 @@ package com.thiago.ecommerceappmvvm.data.repository.dataSourceImpl
 
 import com.thiago.ecommerceappmvvm.data.repository.dataSource.UsersRemoteDataSource
 import com.thiago.ecommerceappmvvm.data.service.UsersService
-import com.thiago.ecommerceappmvvm.domain.models.User
+import com.thiago.ecommerceappmvvm.domain.model.User
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody

@@ -1,7 +1,7 @@
 package com.thiago.ecommerceappmvvm.data.repository
 
 import com.thiago.ecommerceappmvvm.data.repository.dataSource.UsersRemoteDataSource
-import com.thiago.ecommerceappmvvm.domain.models.User
+import com.thiago.ecommerceappmvvm.domain.model.User
 import com.thiago.ecommerceappmvvm.domain.repository.UsersRepository
 import com.thiago.ecommerceappmvvm.domain.util.Resource
 import com.thiago.ecommerceappmvvm.domain.util.ResponseToRequest

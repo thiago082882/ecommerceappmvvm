@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.compose.runtime.*
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.thiago.ecommerceappmvvm.domain.models.Category
+import com.thiago.ecommerceappmvvm.domain.model.Category
 import com.thiago.ecommerceappmvvm.domain.useCase.categories.CategoriesUseCase
 import com.thiago.ecommerceappmvvm.domain.util.Resource
 import com.thiago.ecommerceappmvvm.presentation.screens.admin.category.create.mapper.toCategory

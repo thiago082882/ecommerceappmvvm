@@ -1,6 +1,6 @@
 package com.thiago.ecommerceappmvvm.presentation.screens.auth.register.mapper
 
-import com.thiago.ecommerceappmvvm.domain.models.User
+import com.thiago.ecommerceappmvvm.domain.model.User
 import com.thiago.ecommerceappmvvm.presentation.screens.auth.register.RegisterState
 
 fun RegisterState.toUser(): User {

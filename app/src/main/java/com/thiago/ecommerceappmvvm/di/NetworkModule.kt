@@ -1,11 +1,10 @@
 package com.thiago.ecommerceappmvvm.di
 
 import com.thiago.ecommerceappmvvm.core.Config
-import com.thiago.ecommerceappmvvm.core.Config.BASE_URL
-import com.thiago.ecommerceappmvvm.data.datastore.AuthDatastore
-import com.thiago.ecommerceappmvvm.data.service.AuthService
-import com.thiago.ecommerceappmvvm.data.service.CategoriesService
-import com.thiago.ecommerceappmvvm.data.service.UsersService
+import com.thiago.ecommerceappmvvm.data.dataSource.local.datastore.AuthDatastore
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.AuthService
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.CategoriesService
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.UsersService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

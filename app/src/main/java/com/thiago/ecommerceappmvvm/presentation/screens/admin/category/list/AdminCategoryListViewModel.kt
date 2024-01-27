@@ -1,5 +1,6 @@
 package com.thiago.ecommerceappmvvm.presentation.screens.admin.category.list
 
+import android.annotation.SuppressLint
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -17,10 +18,13 @@ class AdminCategoryListViewModel @Inject constructor(private val categoriesUseCa
 
     var categoriesResponse by mutableStateOf<Resource<List<Category>>?>(null)
         private set
+    var deleteCategoryResponse by mutableStateOf<Resource<Unit>?>(null)
+        private set
 
     init {
         getCategories()
     }
+
     fun getCategories() = viewModelScope.launch {
  categoriesResponse = Resource.Loading
         categoriesUseCase.getCategoriesUseCase().collect(){data->
@@ -29,4 +33,10 @@ class AdminCategoryListViewModel @Inject constructor(private val categoriesUseCa
         }
 
     }
+    fun deleteCategory(id: String) = viewModelScope.launch {
+        deleteCategoryResponse = Resource.Loading
+        val result = categoriesUseCase.deleteCategoryUseCase(id)
+        deleteCategoryResponse = result
+    }
+
 }

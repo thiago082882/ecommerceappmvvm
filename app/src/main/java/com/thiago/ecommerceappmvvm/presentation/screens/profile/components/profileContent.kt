@@ -61,13 +61,30 @@ fun ProfileContent(navController: NavHostController,vm: ProfileViewModel = hiltV
             )
         )
         Column(modifier = Modifier.fillMaxWidth()) {
-
             IconButton(
                 modifier = Modifier
                     .align(Alignment.End)
                     .padding(end = 15.dp, top = 15.dp),
                 onClick = {
                     vm.logout()
+                    activity?.finish()
+                    activity?.startActivity(Intent(activity, MainActivity::class.java))
+
+                }
+            ) {
+                Image(
+                    modifier = Modifier.size(35.dp),
+                    painter = painterResource(id = R.drawable.logout),
+                    contentDescription = "",
+
+                    )
+
+            }
+            IconButton(
+                modifier = Modifier
+                    .align(Alignment.End)
+                    .padding(end = 15.dp, top = 15.dp),
+                onClick = {
                     activity?.finish()
                     activity?.startActivity(Intent(activity, MainActivity::class.java))
                 }
@@ -80,6 +97,7 @@ fun ProfileContent(navController: NavHostController,vm: ProfileViewModel = hiltV
                 )
 
                 }
+
             if (!vm.user?.image.isNullOrBlank()) {
                 AsyncImage(
                     modifier = Modifier

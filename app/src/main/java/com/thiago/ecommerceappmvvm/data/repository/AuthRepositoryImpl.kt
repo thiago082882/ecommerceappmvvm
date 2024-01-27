@@ -1,7 +1,7 @@
 package com.thiago.ecommerceappmvvm.data.repository
 
-import com.thiago.ecommerceappmvvm.data.repository.dataSource.AuthLocalDataSource
-import com.thiago.ecommerceappmvvm.data.repository.dataSource.AuthRemoteDataSource
+import com.thiago.ecommerceappmvvm.data.dataSource.local.AuthLocalDataSource
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.AuthRemoteDataSource
 import com.thiago.ecommerceappmvvm.domain.model.AuthResponse
 import com.thiago.ecommerceappmvvm.domain.model.User
 import com.thiago.ecommerceappmvvm.domain.repository.AuthRepository

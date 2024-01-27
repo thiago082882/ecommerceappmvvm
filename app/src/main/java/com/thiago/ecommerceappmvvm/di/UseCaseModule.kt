@@ -1,8 +1,5 @@
 package com.thiago.ecommerceappmvvm.di
 
-import com.thiago.ecommerceappmvvm.data.repository.dataSource.AuthRemoteDataSource
-import com.thiago.ecommerceappmvvm.data.repository.dataSourceImpl.AuthRemoteDataSourceImpl
-import com.thiago.ecommerceappmvvm.data.service.AuthService
 import com.thiago.ecommerceappmvvm.domain.repository.AuthRepository
 import com.thiago.ecommerceappmvvm.domain.repository.CategoriesRepository
 import com.thiago.ecommerceappmvvm.domain.repository.UsersRepository
@@ -15,6 +12,7 @@ import com.thiago.ecommerceappmvvm.domain.useCase.auth.SaveSessionUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.auth.UpdateSessionUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.categories.CategoriesUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.categories.CreateCategoryUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.categories.DeleteCategoryUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.categories.GetCategoriesUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.categories.UpdateCategoryUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.categories.UpdateCategoryWithImageUseCase
@@ -50,7 +48,8 @@ object UseCaseModule {
         createCategory = CreateCategoryUseCase(categoriesRepository),
         getCategoriesUseCase = GetCategoriesUseCase(categoriesRepository),
         updateCategory = UpdateCategoryUseCase(categoriesRepository),
-        updateCategoryWithImage = UpdateCategoryWithImageUseCase(categoriesRepository)
+        updateCategoryWithImage = UpdateCategoryWithImageUseCase(categoriesRepository),
+        deleteCategoryUseCase = DeleteCategoryUseCase(categoriesRepository)
 
     )
 

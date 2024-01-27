@@ -1,4 +1,4 @@
-package com.thiago.ecommerceappmvvm.data.service
+package com.thiago.ecommerceappmvvm.data.dataSource.remote.service
 
 import com.thiago.ecommerceappmvvm.domain.model.AuthResponse
 import com.thiago.ecommerceappmvvm.domain.model.User

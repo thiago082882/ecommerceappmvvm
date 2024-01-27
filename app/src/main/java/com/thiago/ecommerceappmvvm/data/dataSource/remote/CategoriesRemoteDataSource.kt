@@ -1,4 +1,4 @@
-package com.thiago.ecommerceappmvvm.data.repository.dataSource
+package com.thiago.ecommerceappmvvm.data.dataSource.remote
 
 import com.thiago.ecommerceappmvvm.domain.model.Category
 import retrofit2.Response

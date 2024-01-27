@@ -1,7 +1,6 @@
-package com.thiago.ecommerceappmvvm.data.repository.dataSourceImpl
+package com.thiago.ecommerceappmvvm.data.dataSource.remote
 
-import com.thiago.ecommerceappmvvm.data.repository.dataSource.AuthRemoteDataSource
-import com.thiago.ecommerceappmvvm.data.service.AuthService
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.AuthService
 import com.thiago.ecommerceappmvvm.domain.model.AuthResponse
 import com.thiago.ecommerceappmvvm.domain.model.User
 import retrofit2.Response

@@ -14,6 +14,7 @@ import androidx.navigation.NavHostController
 import com.thiago.ecommerceappmvvm.presentation.components.DefaultTopBar
 import com.thiago.ecommerceappmvvm.presentation.navigation.Graph
 import com.thiago.ecommerceappmvvm.presentation.screens.admin.category.list.components.AdminCategoryListContent
+import com.thiago.ecommerceappmvvm.presentation.screens.admin.category.list.components.DeleteCategories
 import com.thiago.ecommerceappmvvm.presentation.screens.admin.category.list.components.GetCategories
 import com.thiago.ecommerceappmvvm.presentation.screens.client.category.list.components.ClientCategoryListContent
 
@@ -39,6 +40,7 @@ fun AdminCategoryListScreen(navController: NavHostController) {
 
         GetCategories(navController = navController)
     }
+    DeleteCategories()
 
 
 }

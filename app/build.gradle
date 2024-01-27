@@ -83,12 +83,20 @@ dependencies {
     //https://github.com/square/moshi
     implementation("com.squareup.moshi:moshi-kotlin:1.14.0")
 
-///https://developer.android.com/topic/libraries/architecture/datastore?hl=pt-br
+    //https://developer.android.com/topic/libraries/architecture/datastore?hl=pt-br
     implementation "androidx.datastore:datastore-preferences:1.0.0"
-//https://coil-kt.github.io/coil/compose/
+
+    //https://coil-kt.github.io/coil/compose/
     implementation("io.coil-kt:coil-compose:2.4.0")
+
     // FILES TRANFORMATION
     implementation "commons-io:commons-io:2.7"
+
+    // ROOM
+    implementation("androidx.room:room-runtime:2.5.0")
+    annotationProcessor("androidx.room:room-compiler:2.5.0")
+    kapt("androidx.room:room-compiler:2.5.0")
+    implementation("androidx.room:room-ktx:2.5.0")
 
 }
 

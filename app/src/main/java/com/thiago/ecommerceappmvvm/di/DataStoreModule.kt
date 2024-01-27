@@ -6,7 +6,7 @@ import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStoreFile
 import com.thiago.ecommerceappmvvm.core.Config.AUTH_PREFERENCE
-import com.thiago.ecommerceappmvvm.data.datastore.AuthDatastore
+import com.thiago.ecommerceappmvvm.data.dataSource.local.datastore.AuthDatastore
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

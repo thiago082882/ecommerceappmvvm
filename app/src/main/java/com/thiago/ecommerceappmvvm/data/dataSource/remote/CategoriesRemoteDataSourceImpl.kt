@@ -1,7 +1,6 @@
-package com.thiago.ecommerceappmvvm.data.repository.dataSourceImpl
+package com.thiago.ecommerceappmvvm.data.dataSource.remote
 
-import com.thiago.ecommerceappmvvm.data.repository.dataSource.CategoriesRemoteDataSource
-import com.thiago.ecommerceappmvvm.data.service.CategoriesService
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.CategoriesService
 import com.thiago.ecommerceappmvvm.domain.model.Category
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -10,7 +9,8 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.Response
 import java.io.File
 
-class CategoriesRemoteDataSourceImpl(private val categoriesService: CategoriesService): CategoriesRemoteDataSource {
+class CategoriesRemoteDataSourceImpl(private val categoriesService: CategoriesService):
+    CategoriesRemoteDataSource {
 
 
 
@@ -47,9 +47,7 @@ class CategoriesRemoteDataSourceImpl(private val categoriesService: CategoriesSe
         return categoriesService.updateWithImage(fileFormData, id, nameData, descriptionData)
     }
 
-    override suspend fun delete(id: String): Response<Unit> {
-        TODO("Not yet implemented")
-    }
+    override suspend fun delete(id: String): Response<Unit> = categoriesService.delete(id)
 
 
 }

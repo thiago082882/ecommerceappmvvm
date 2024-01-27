@@ -1,14 +1,14 @@
 package com.thiago.ecommerceappmvvm.di
 
-import com.thiago.ecommerceappmvvm.data.repository.dataSource.AuthRemoteDataSource
-import com.thiago.ecommerceappmvvm.data.repository.dataSource.CategoriesRemoteDataSource
-import com.thiago.ecommerceappmvvm.data.repository.dataSource.UsersRemoteDataSource
-import com.thiago.ecommerceappmvvm.data.repository.dataSourceImpl.AuthRemoteDataSourceImpl
-import com.thiago.ecommerceappmvvm.data.repository.dataSourceImpl.CategoriesRemoteDataSourceImpl
-import com.thiago.ecommerceappmvvm.data.repository.dataSourceImpl.UsersRemoteDataSourceImpl
-import com.thiago.ecommerceappmvvm.data.service.AuthService
-import com.thiago.ecommerceappmvvm.data.service.CategoriesService
-import com.thiago.ecommerceappmvvm.data.service.UsersService
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.AuthRemoteDataSource
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.CategoriesRemoteDataSource
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.UsersRemoteDataSource
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.AuthRemoteDataSourceImpl
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.CategoriesRemoteDataSourceImpl
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.UsersRemoteDataSourceImpl
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.AuthService
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.CategoriesService
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.UsersService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

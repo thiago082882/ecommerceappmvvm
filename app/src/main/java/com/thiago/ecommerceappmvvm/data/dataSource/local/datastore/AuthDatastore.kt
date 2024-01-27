@@ -1,4 +1,4 @@
-package com.thiago.ecommerceappmvvm.data.datastore
+package com.thiago.ecommerceappmvvm.data.dataSource.local.datastore
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences

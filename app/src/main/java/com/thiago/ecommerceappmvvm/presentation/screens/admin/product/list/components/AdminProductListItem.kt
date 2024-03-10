@@ -1,8 +1,15 @@
-package com.thiago.ecommerceappmvvm.presentation.screens.admin.category.list.components
+package com.thiago.ecommerceappmvvm.presentation.screens.admin.product.list.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
 import androidx.compose.material.Text
@@ -14,27 +21,25 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
-import com.thiago.ecommerceappmvvm.domain.model.Category
 import com.thiago.ecommerceappmvvm.R
-import com.thiago.ecommerceappmvvm.presentation.navigation.Graph
+import com.thiago.ecommerceappmvvm.domain.model.Product
 import com.thiago.ecommerceappmvvm.presentation.navigation.screen.admin.AdminCategoryScreen
-import com.thiago.ecommerceappmvvm.presentation.screens.admin.category.list.AdminCategoryListViewModel
+import com.thiago.ecommerceappmvvm.presentation.screens.admin.product.list.AdminProductListViewModel
+import com.thiago.ecommerceappmvvm.presentation.ui.theme.Gray100
 
 @Composable
-fun AdminCategoryListItem(
+fun AdminProductListItem(
     navController: NavHostController,
-    category: Category,
-    vm: AdminCategoryListViewModel = hiltViewModel()
+    product: Product,
+    vm: AdminProductListViewModel = hiltViewModel()
 ) {
 
     Column(
         Modifier
             .padding(start = 20.dp, end = 20.dp, top = 15.dp)
             .height(90.dp)
-            .clickable { navController.navigate(route = AdminCategoryScreen.ProductList.passCategory(category.toJson()))}
     ) {
         Row() {
 
@@ -42,7 +47,7 @@ fun AdminCategoryListItem(
                 modifier = Modifier
                     .size(70.dp)
                     .clip(RoundedCornerShape(10.dp)),
-                model = category.image,
+                model = product.image1,
                 contentDescription = ""
             )
             Spacer(modifier = Modifier.width(10.dp))
@@ -50,19 +55,24 @@ fun AdminCategoryListItem(
                 Modifier.weight(1f)
             ) {
                 Text(
-                    text = category.name,
+                    text = product.name,
                     color = Color.Black,
                     fontSize = 17.sp
                 )
                 Spacer(modifier = Modifier.height(5.dp))
                 Text(
-                    text = category.description,
+                    text = product.description,
                     color = Color.Gray,
                     fontSize = 14.sp
                 )
+                Spacer(modifier = Modifier.height(5.dp))
+                Text(
+                    text = product.price.toString() + "$",
+                    color = Color.Black,
+                    fontSize = 13.sp
+                )
             }
             Spacer(Modifier.width(15.dp))
-
             Column(
                 verticalArrangement = Arrangement.Center
             ) {
@@ -71,7 +81,7 @@ fun AdminCategoryListItem(
                         .size(27.dp)
                         .clickable {
                             navController.navigate(
-                                route = AdminCategoryScreen.CategoryUpdate.passCategory(category.toJson())
+                                route = AdminCategoryScreen.ProductUpdate.passProduct(product.toJson())
                             )
                         },
                     painter = painterResource(id = R.drawable.edit),
@@ -81,9 +91,7 @@ fun AdminCategoryListItem(
                 Image(
                     modifier = Modifier
                         .size(27.dp)
-                        .clickable {
-                            vm.deleteCategory(category.id!!)
-                        },
+                        .clickable { vm.deleteProduct(product.id ?: "") },
                     painter = painterResource(id = R.drawable.trash),
                     contentDescription = ""
                 )
@@ -91,7 +99,7 @@ fun AdminCategoryListItem(
         }
         Spacer(modifier = Modifier.height(10.dp))
         Divider(
-            color = Color.LightGray,
+            color = Gray100,
             startIndent = 80.dp
         )
     }

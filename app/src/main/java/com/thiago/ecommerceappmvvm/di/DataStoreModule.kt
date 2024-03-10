@@ -6,7 +6,9 @@ import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStoreFile
 import com.thiago.ecommerceappmvvm.core.Config.AUTH_PREFERENCE
+import com.thiago.ecommerceappmvvm.data.dataSource.local.dao.ProductsDao
 import com.thiago.ecommerceappmvvm.data.dataSource.local.datastore.AuthDatastore
+import com.thiago.ecommerceappmvvm.data.dataSource.local.db.EcommerceDB
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,4 +33,8 @@ object DataStoreModule {
     @Provides
     @Singleton
     fun  providerAuthDataStore(dataStore:DataStore<Preferences>) = AuthDatastore(dataStore)
+
+    @Provides
+    @Singleton
+    fun provideProductsDao(db: EcommerceDB): ProductsDao = db.productsDao()
 }

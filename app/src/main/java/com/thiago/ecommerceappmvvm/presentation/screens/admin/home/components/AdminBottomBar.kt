@@ -10,7 +10,7 @@ import com.thiago.ecommerceappmvvm.presentation.navigation.screen.admin.AdminScr
 @Composable
 fun AdminBottomBar(navController: NavHostController) {
     val screens = listOf(
-        AdminScreen.productList,
+       // AdminScreen.productList,
         AdminScreen.categoryList,
         AdminScreen.Profile
     )

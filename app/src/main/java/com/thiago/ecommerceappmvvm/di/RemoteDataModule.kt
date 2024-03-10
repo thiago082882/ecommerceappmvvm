@@ -5,9 +5,12 @@ import com.thiago.ecommerceappmvvm.data.dataSource.remote.CategoriesRemoteDataSo
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.UsersRemoteDataSource
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.AuthRemoteDataSourceImpl
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.CategoriesRemoteDataSourceImpl
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.ProductsRemoteDataSource
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.ProductsRemoteDataSourceImpl
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.UsersRemoteDataSourceImpl
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.AuthService
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.CategoriesService
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.ProductsService
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.UsersService
 import dagger.Module
 import dagger.Provides
@@ -27,4 +30,6 @@ object RemoteDataModule {
     @Provides
     fun provideCategoriesRemoteDataSource(categoriesService: CategoriesService): CategoriesRemoteDataSource = CategoriesRemoteDataSourceImpl(categoriesService)
 
+    @Provides
+    fun provideProductsRemoteDataSource(productsService: ProductsService): ProductsRemoteDataSource = ProductsRemoteDataSourceImpl(productsService)
 }

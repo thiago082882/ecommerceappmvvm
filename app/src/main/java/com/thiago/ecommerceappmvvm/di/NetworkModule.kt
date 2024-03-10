@@ -4,6 +4,7 @@ import com.thiago.ecommerceappmvvm.core.Config
 import com.thiago.ecommerceappmvvm.data.dataSource.local.datastore.AuthDatastore
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.AuthService
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.CategoriesService
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.ProductsService
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.UsersService
 import dagger.Module
 import dagger.Provides
@@ -59,5 +60,11 @@ object NetworkModule {
     @Singleton
     fun provideCategoryService(retrofit: Retrofit): CategoriesService {
         return retrofit.create(CategoriesService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideProductsService(retrofit: Retrofit): ProductsService {
+        return retrofit.create(ProductsService::class.java)
     }
 }

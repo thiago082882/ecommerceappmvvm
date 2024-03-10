@@ -6,6 +6,6 @@ import androidx.compose.runtime.Composable
 @Composable
 fun ClientProductListContent() {
 
-    Text(text = "Product Category Screen")
+    Text(text = "com.thiago.ecommerceappmvvm.domain.model.Product Category Screen")
 
 }

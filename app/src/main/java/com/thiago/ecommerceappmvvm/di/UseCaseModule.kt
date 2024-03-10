@@ -2,6 +2,7 @@ package com.thiago.ecommerceappmvvm.di
 
 import com.thiago.ecommerceappmvvm.domain.repository.AuthRepository
 import com.thiago.ecommerceappmvvm.domain.repository.CategoriesRepository
+import com.thiago.ecommerceappmvvm.domain.repository.ProductsRepository
 import com.thiago.ecommerceappmvvm.domain.repository.UsersRepository
 import com.thiago.ecommerceappmvvm.domain.useCase.auth.AuthUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.auth.GetSessionDataUseCase
@@ -16,6 +17,14 @@ import com.thiago.ecommerceappmvvm.domain.useCase.categories.DeleteCategoryUseCa
 import com.thiago.ecommerceappmvvm.domain.useCase.categories.GetCategoriesUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.categories.UpdateCategoryUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.categories.UpdateCategoryWithImageUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.products.CreateProductUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.products.DeleteProductUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.products.FindAllUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.products.FindByCategoryUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.products.FindByNameUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.products.ProductsUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.products.UpdateProductUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.products.UpdateProductWithImageUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.users.UpdateUserUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.users.UpdateUserWithImageUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.users.UsersUseCase
@@ -53,4 +62,14 @@ object UseCaseModule {
 
     )
 
+    @Provides
+    fun provideProductsUseCase(productsRepository: ProductsRepository) = ProductsUseCase(
+        createProduct = CreateProductUseCase(productsRepository),
+        findByCategory = FindByCategoryUseCase(productsRepository),
+        findAll = FindAllUseCase(productsRepository),
+        updateProduct = UpdateProductUseCase(productsRepository),
+        updateProductWithImage = UpdateProductWithImageUseCase(productsRepository),
+        deleteProduct = DeleteProductUseCase(productsRepository),
+        findByName = FindByNameUseCase(productsRepository)
+    )
 }

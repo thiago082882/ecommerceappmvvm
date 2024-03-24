@@ -1,7 +1,6 @@
 package com.thiago.ecommerceappmvvm.presentation.screens.admin.product.update
 
 data class AdminProductUpdateState(
-    val id: String = "",
     val name: String = "",
     val description: String = "",
     val idCategory: String = "",

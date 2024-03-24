@@ -34,7 +34,4 @@ object DataStoreModule {
     @Singleton
     fun  providerAuthDataStore(dataStore:DataStore<Preferences>) = AuthDatastore(dataStore)
 
-    @Provides
-    @Singleton
-    fun provideProductsDao(db: EcommerceDB): ProductsDao = db.productsDao()
 }

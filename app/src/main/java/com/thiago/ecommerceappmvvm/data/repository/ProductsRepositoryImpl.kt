@@ -88,7 +88,7 @@ class ProductsRepositoryImpl(
                     Resource.Success(this.data)
                 }
                 else -> {
-                    Resource.Failure("Error desconocido")
+                    Resource.Failure("Error desconhecido")
                 }
             }
         }
@@ -114,7 +114,7 @@ class ProductsRepositoryImpl(
                     Resource.Success(this.data)
                 }
                 else -> {
-                    Resource.Failure("Error desconocido")
+                    Resource.Failure("Error desconhecido")
                 }
             }
         }
@@ -135,7 +135,7 @@ class ProductsRepositoryImpl(
                     Resource.Success(this.data)
                 }
                 else -> {
-                    Resource.Failure("Error desconocido")
+                    Resource.Failure("Error desconhecido")
                 }
             }
         }
@@ -149,7 +149,7 @@ class ProductsRepositoryImpl(
                     Resource.Success(Unit)
                 }
                 else -> {
-                    Resource.Failure("Error desconocido")
+                    Resource.Failure("Error desconhecido")
                 }
             }
         }

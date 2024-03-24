@@ -1,5 +1,6 @@
 package com.thiago.ecommerceappmvvm.presentation.screens.client.category.list.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -17,43 +18,44 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import com.thiago.ecommerceappmvvm.domain.model.Category
+import com.thiago.ecommerceappmvvm.presentation.navigation.screen.client.ClientCategoryScreen
 
 @Composable
 fun ClientCategoryListItem(navController: NavHostController, category: Category) {
 
-
     Card(
-        modifier = Modifier.padding(bottom = 15.dp),
+        modifier = Modifier
+            .padding(bottom = 15.dp)
+            .clickable { navController.navigate(route = ClientCategoryScreen.ProductList.passCategory(category.toJson())) },
         elevation = 4.dp,
         shape = RoundedCornerShape(20.dp)
     ) {
 
-        Column() {
-            AsyncImage(
+        Column {
 
+            AsyncImage(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(170.dp),
                 model = category.image,
                 contentDescription = "",
-               // contentScale = ContentScale.Crop
+//                contentScale = ContentScale.Crop
             )
-
             Text(
-                modifier = Modifier
-                    .padding(horizontal = 20.dp, vertical = 10.dp),
+                modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp),
                 text = category.name,
                 fontWeight = FontWeight.Bold,
                 color = Color.Black
             )
-
             Text(
-                modifier = Modifier
-                    .padding(start = 20.dp, end = 20.dp, bottom = 20.dp),
+                modifier = Modifier.padding(start = 20.dp, end = 20.dp, bottom = 20.dp),
                 text = category.description,
                 fontSize = 14.sp,
                 color = Color.Gray
             )
+
         }
+
     }
+
 }

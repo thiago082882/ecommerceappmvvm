@@ -1,4 +1,5 @@
-package com.thiago.ecommerceappmvvm.presentation.screens.admin.product.list.components
+package com.thiago.ecommerceappmvvm.presentation.screens.client.product.list.components
+
 import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.layout.PaddingValues
@@ -11,22 +12,23 @@ import com.thiago.ecommerceappmvvm.domain.util.Resource
 import com.thiago.ecommerceappmvvm.presentation.components.ProgressBar
 import com.thiago.ecommerceappmvvm.presentation.screens.admin.category.list.AdminCategoryListViewModel
 import com.thiago.ecommerceappmvvm.presentation.screens.admin.product.list.AdminProductListViewModel
+import com.thiago.ecommerceappmvvm.presentation.screens.client.product.list.ClientProductListViewModel
 
 @Composable
-fun DeleteProduct(vm: AdminProductListViewModel = hiltViewModel()) {
-    when(val response = vm.productDeleteResponse) {
+fun GetProducts(navController: NavHostController, vm: ClientProductListViewModel = hiltViewModel()) {
+    when(val response = vm.productsResponse) {
         Resource.Loading -> {
             ProgressBar()
         }
         is Resource.Success -> {
-            Toast.makeText(LocalContext.current, "O produto foi  eliminado corretamente", Toast.LENGTH_LONG).show()
+           ClientProductListContent(navController = navController, products = response.data)
         }
         is Resource.Failure -> {
             Toast.makeText(LocalContext.current, response.message, Toast.LENGTH_LONG).show()
         }
         else -> {
             if (response != null) {
-                Toast.makeText(LocalContext.current, "Houve  um erro desconhecido", Toast.LENGTH_LONG).show()
+                Toast.makeText(LocalContext.current, "Hubo error desconocido", Toast.LENGTH_LONG).show()
             }
         }
     }

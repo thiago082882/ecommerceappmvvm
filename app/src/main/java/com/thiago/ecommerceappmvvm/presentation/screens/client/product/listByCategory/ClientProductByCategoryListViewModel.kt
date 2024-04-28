@@ -1,4 +1,4 @@
-package com.thiago.ecommerceappmvvm.presentation.screens.client.category.listByCategory
+package com.thiago.ecommerceappmvvm.presentation.screens.client.product.listByCategory
 
 import android.util.Log
 import androidx.compose.runtime.*

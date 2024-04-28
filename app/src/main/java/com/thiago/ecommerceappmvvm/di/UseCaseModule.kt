@@ -3,6 +3,7 @@ package com.thiago.ecommerceappmvvm.di
 import com.thiago.ecommerceappmvvm.domain.repository.AuthRepository
 import com.thiago.ecommerceappmvvm.domain.repository.CategoriesRepository
 import com.thiago.ecommerceappmvvm.domain.repository.ProductsRepository
+import com.thiago.ecommerceappmvvm.domain.repository.ShoppingBagRepository
 import com.thiago.ecommerceappmvvm.domain.repository.UsersRepository
 import com.thiago.ecommerceappmvvm.domain.useCase.auth.AuthUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.auth.GetSessionDataUseCase
@@ -25,6 +26,12 @@ import com.thiago.ecommerceappmvvm.domain.useCase.products.FindByNameUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.products.ProductsUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.products.UpdateProductUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.products.UpdateProductWithImageUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.shopping_bag.AddUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.shopping_bag.DeleteUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.shopping_bag.FindAllShoppingBagUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.shopping_bag.FindByIdShoppingBagUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.shopping_bag.GetTotalUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.shopping_bag.ShoppingBagUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.users.UpdateUserUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.users.UpdateUserWithImageUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.users.UsersUseCase
@@ -71,5 +78,15 @@ object UseCaseModule {
         updateProductWithImage = UpdateProductWithImageUseCase(productsRepository),
         deleteProduct = DeleteProductUseCase(productsRepository),
         findByName = FindByNameUseCase(productsRepository)
+    )
+
+
+    @Provides
+    fun provideShoppingBagUseCase(shoppingBagRepository: ShoppingBagRepository) = ShoppingBagUseCase(
+        add = AddUseCase(shoppingBagRepository),
+        delete = DeleteUseCase(shoppingBagRepository),
+        findAll = FindAllShoppingBagUseCase(shoppingBagRepository),
+        findById = FindByIdShoppingBagUseCase(shoppingBagRepository),
+        getTotal = GetTotalUseCase(shoppingBagRepository)
     )
 }

@@ -6,14 +6,17 @@ import com.thiago.ecommerceappmvvm.data.repository.UsersRepositoryImpl
 import com.thiago.ecommerceappmvvm.data.dataSource.local.AuthLocalDataSource
 import com.thiago.ecommerceappmvvm.data.dataSource.local.CategoriesLocalDataSource
 import com.thiago.ecommerceappmvvm.data.dataSource.local.ProductsLocalDataSource
+import com.thiago.ecommerceappmvvm.data.dataSource.local.ShoppingBagLocalDataSource
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.AuthRemoteDataSource
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.CategoriesRemoteDataSource
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.ProductsRemoteDataSource
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.UsersRemoteDataSource
 import com.thiago.ecommerceappmvvm.data.repository.ProductsRepositoryImpl
+import com.thiago.ecommerceappmvvm.data.repository.ShoppingBagRepositoryImpl
 import com.thiago.ecommerceappmvvm.domain.repository.AuthRepository
 import com.thiago.ecommerceappmvvm.domain.repository.CategoriesRepository
 import com.thiago.ecommerceappmvvm.domain.repository.ProductsRepository
+import com.thiago.ecommerceappmvvm.domain.repository.ShoppingBagRepository
 import com.thiago.ecommerceappmvvm.domain.repository.UsersRepository
 import dagger.Module
 import dagger.Provides
@@ -44,5 +47,10 @@ object RepositoryModule {
         productsRemoteDataSource: ProductsRemoteDataSource,
         productsLocalDataSource: ProductsLocalDataSource
     ): ProductsRepository = ProductsRepositoryImpl(productsRemoteDataSource, productsLocalDataSource)
+
+    @Provides
+    fun provideShoppingBagRepository(
+        shoppingBagLocalDataSource: ShoppingBagLocalDataSource
+    ): ShoppingBagRepository = ShoppingBagRepositoryImpl(shoppingBagLocalDataSource)
 
 }

@@ -1,4 +1,4 @@
-package com.thiago.ecommerceappmvvm.presentation.screens.client.category.listByCategory.components
+package com.thiago.ecommerceappmvvm.presentation.screens.client.product.listByCategory.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -22,7 +22,7 @@ import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import com.thiago.ecommerceappmvvm.domain.model.Product
 import com.thiago.ecommerceappmvvm.presentation.navigation.screen.client.ClientProductScreen
-import com.thiago.ecommerceappmvvm.presentation.screens.client.category.listByCategory.ClientProductByCategoryListViewModel
+import com.thiago.ecommerceappmvvm.presentation.screens.client.product.listByCategory.ClientProductByCategoryListViewModel
 import com.thiago.ecommerceappmvvm.presentation.ui.theme.Gray100
 
 @Composable

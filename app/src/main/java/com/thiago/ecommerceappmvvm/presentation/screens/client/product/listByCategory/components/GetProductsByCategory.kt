@@ -1,4 +1,4 @@
-package com.thiago.ecommerceappmvvm.presentation.screens.client.category.listByCategory.components
+package com.thiago.ecommerceappmvvm.presentation.screens.client.product.listByCategory.components
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.PaddingValues
@@ -9,7 +9,7 @@ import androidx.navigation.NavHostController
 import com.thiago.ecommerceappmvvm.domain.util.Resource
 import com.thiago.ecommerceappmvvm.presentation.components.ProgressBar
 import com.thiago.ecommerceappmvvm.presentation.screens.admin.product.list.AdminProductListViewModel
-import com.thiago.ecommerceappmvvm.presentation.screens.client.category.listByCategory.ClientProductByCategoryListViewModel
+import com.thiago.ecommerceappmvvm.presentation.screens.client.product.listByCategory.ClientProductByCategoryListViewModel
 
 @Composable
 fun GetProductsByCategory(navController: NavHostController, paddingValues: PaddingValues, vm: ClientProductByCategoryListViewModel = hiltViewModel()) {

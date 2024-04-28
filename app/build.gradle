@@ -98,6 +98,10 @@ dependencies {
     kapt("androidx.room:room-compiler:2.5.0")
     implementation("androidx.room:room-ktx:2.5.0")
 
+    // CARRUSEL DE IMAGENES
+    implementation "com.google.accompanist:accompanist-pager:0.22.0-rc"
+    implementation "com.google.accompanist:accompanist-pager-indicators:0.22.0-rc"
+
 }
 
 kapt {

@@ -1,4 +1,4 @@
-package com.thiago.ecommerceappmvvm.presentation.screens.client.category.listByCategory.components
+package com.thiago.ecommerceappmvvm.presentation.screens.client.product.listByCategory.components
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding

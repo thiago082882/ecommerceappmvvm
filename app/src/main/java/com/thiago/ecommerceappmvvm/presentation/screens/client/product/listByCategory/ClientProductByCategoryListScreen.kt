@@ -1,4 +1,4 @@
-package com.thiago.ecommerceappmvvm.presentation.screens.client.category.listByCategory
+package com.thiago.ecommerceappmvvm.presentation.screens.client.product.listByCategory
 
 import android.util.Log
 import androidx.compose.foundation.layout.padding
@@ -17,7 +17,7 @@ import com.thiago.ecommerceappmvvm.presentation.components.DefaultTopBar
 import com.thiago.ecommerceappmvvm.presentation.navigation.screen.admin.AdminCategoryScreen
 import com.thiago.ecommerceappmvvm.presentation.screens.admin.product.list.components.DeleteProduct
 import com.thiago.ecommerceappmvvm.presentation.screens.admin.product.list.components.GetProducts
-import com.thiago.ecommerceappmvvm.presentation.screens.client.category.listByCategory.components.GetProductsByCategory
+import com.thiago.ecommerceappmvvm.presentation.screens.client.product.listByCategory.components.GetProductsByCategory
 
 
 @Composable

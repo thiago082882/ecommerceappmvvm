@@ -8,7 +8,8 @@ import androidx.navigation.navArgument
 import androidx.navigation.navigation
 import com.thiago.ecommerceappmvvm.presentation.navigation.Graph
 import com.thiago.ecommerceappmvvm.presentation.navigation.screen.client.ClientCategoryScreen
-import com.thiago.ecommerceappmvvm.presentation.screens.client.category.listByCategory.ClientProductByCategoryListScreen
+import com.thiago.ecommerceappmvvm.presentation.screens.client.product.listByCategory.ClientProductByCategoryListScreen
+import com.thiago.ecommerceappmvvm.presentation.screens.client.product.detail.ClientProductDetailScreen
 
 fun NavGraphBuilder.ClientCategoryNavGraph(navController: NavHostController) {
     navigation(
@@ -27,16 +28,16 @@ fun NavGraphBuilder.ClientCategoryNavGraph(navController: NavHostController) {
             }
         }
 
-//        composable(
-//            route = ClientCategoryScreen.ProductDetail.route,
-//            arguments = listOf(navArgument("product") {
-//                type = NavType.StringType
-//            })
-//        ) {
-//            it.arguments?.getString("product")?.let {
-//                ClientProductDetailScreen(navController, it)
-//            }
-//        }
+        composable(
+            route = ClientCategoryScreen.ProductDetail.route,
+            arguments = listOf(navArgument("product") {
+                type = NavType.StringType
+            })
+        ) {
+            it.arguments?.getString("product")?.let {
+                ClientProductDetailScreen(navController, it)
+            }
+        }
 
 
     }

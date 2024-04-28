@@ -7,8 +7,11 @@ import com.thiago.ecommerceappmvvm.data.dataSource.local.CategoriesLocalDataSour
 import com.thiago.ecommerceappmvvm.data.dataSource.local.CategoriesLocalDataSourceImpl
 import com.thiago.ecommerceappmvvm.data.dataSource.local.ProductsLocalDataSource
 import com.thiago.ecommerceappmvvm.data.dataSource.local.ProductsLocalDataSourceImpl
+import com.thiago.ecommerceappmvvm.data.dataSource.local.ShoppingBagLocalDataSource
+import com.thiago.ecommerceappmvvm.data.dataSource.local.ShoppingBagLocalDataSourceImpl
 import com.thiago.ecommerceappmvvm.data.dataSource.local.dao.CategoriesDao
 import com.thiago.ecommerceappmvvm.data.dataSource.local.dao.ProductsDao
+import com.thiago.ecommerceappmvvm.data.dataSource.local.dao.ShoppingBagDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,5 +32,9 @@ object LocalDataModule {
 
     @Provides
     fun provideProductsLocalDataSource(productsDao: ProductsDao): ProductsLocalDataSource = ProductsLocalDataSourceImpl(productsDao)
+
+    @Provides
+    fun provideShoppingBagLocalDataSource(shoppingBagDao: ShoppingBagDao): ShoppingBagLocalDataSource = ShoppingBagLocalDataSourceImpl(shoppingBagDao)
+
 
 }

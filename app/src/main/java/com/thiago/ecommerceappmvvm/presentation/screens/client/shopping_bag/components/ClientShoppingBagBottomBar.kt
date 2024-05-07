@@ -43,7 +43,7 @@ fun ClientShoppingBagBottomBar(
                 fontSize = 17.sp
             )
             Text(
-                text = vm.total.toString() + "$",
+                text = vm.total.toString() + "R$",
                 fontSize = 16.sp
             )
         }

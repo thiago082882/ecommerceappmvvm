@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.thiago.ecommerceappmvvm.presentation.navigation.screen.client.ShoppingBagScreen
 
 
 @Composable
@@ -59,13 +60,13 @@ fun DefaultSearchView(
 
         actions = {
 
-//            IconButton(onClick = { navController.navigate(route = ShoppingBagScreen.ShoppingBag.route) }) {
-//                Icon(
-//                    imageVector = Icons.Default.ShoppingCart,
-//                    contentDescription = "",
-//                    tint = Color.Black
-//                )
-//            }
+            IconButton(onClick = { navController.navigate(route = ShoppingBagScreen.ShoppingBag.route) }) {
+                Icon(
+                    imageVector = Icons.Default.ShoppingCart,
+                    contentDescription = "",
+                    tint = Color.Black
+                )
+            }
 
         }
     )

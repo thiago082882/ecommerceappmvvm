@@ -4,6 +4,7 @@ import androidx.navigation.*
 import androidx.navigation.compose.composable
 import com.thiago.ecommerceappmvvm.presentation.navigation.Graph
 import com.thiago.ecommerceappmvvm.presentation.navigation.screen.client.ShoppingBagScreen
+import com.thiago.ecommerceappmvvm.presentation.screens.client.shopping_bag.ClientShoppingBagScreen
 
 fun NavGraphBuilder.ShoppingBagNavGraph(navController: NavHostController) {
     navigation(
@@ -14,7 +15,7 @@ fun NavGraphBuilder.ShoppingBagNavGraph(navController: NavHostController) {
         composable(
             route = ShoppingBagScreen.ShoppingBag.route,
         ) {
-          //  ClientShoppingBagScreen(navController)
+            ClientShoppingBagScreen(navController)
         }
         composable(
             route = ShoppingBagScreen.AddressList.route,

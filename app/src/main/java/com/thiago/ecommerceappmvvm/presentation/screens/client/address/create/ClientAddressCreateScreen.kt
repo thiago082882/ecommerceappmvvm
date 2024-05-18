@@ -24,7 +24,7 @@ fun ClientAddressCreateScreen(navController: NavHostController, vm: ClientAddres
             )
         },
         backgroundColor = Gray100
-    ) { paddingValues ->
+    ) {
         ClientAddressCreateContent()
     }
     CreateAddress()

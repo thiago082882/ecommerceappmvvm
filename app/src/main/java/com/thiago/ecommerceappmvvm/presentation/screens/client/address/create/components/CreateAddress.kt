@@ -21,7 +21,7 @@ fun CreateAddress(vm: ClientAddressCreateViewModel = hiltViewModel()) {
             vm.clearForm()
             Toast.makeText(
                 LocalContext.current,
-                "Los datos se han creado correctamete",
+                "Os dados foram criados corretamente",
                 Toast.LENGTH_LONG
             ).show()
         }
@@ -32,7 +32,7 @@ fun CreateAddress(vm: ClientAddressCreateViewModel = hiltViewModel()) {
 
         else -> {
             if (response != null) {
-                Toast.makeText(LocalContext.current, "Hubo error desconocido", Toast.LENGTH_LONG)
+                Toast.makeText(LocalContext.current, "Houve  um erro desconhecido", Toast.LENGTH_LONG)
                     .show()
             }
         }

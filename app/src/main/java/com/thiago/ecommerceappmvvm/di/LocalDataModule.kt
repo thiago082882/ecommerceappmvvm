@@ -1,5 +1,7 @@
 package com.thiago.ecommerceappmvvm.di
 
+import com.thiago.ecommerceappmvvm.data.dataSource.local.AddressLocalDataSource
+import com.thiago.ecommerceappmvvm.data.dataSource.local.AddressLocalDataSourceImpl
 import com.thiago.ecommerceappmvvm.data.dataSource.local.datastore.AuthDatastore
 import com.thiago.ecommerceappmvvm.data.dataSource.local.AuthLocalDataSource
 import com.thiago.ecommerceappmvvm.data.dataSource.local.AuthLocalDataSourceImpl
@@ -9,6 +11,7 @@ import com.thiago.ecommerceappmvvm.data.dataSource.local.ProductsLocalDataSource
 import com.thiago.ecommerceappmvvm.data.dataSource.local.ProductsLocalDataSourceImpl
 import com.thiago.ecommerceappmvvm.data.dataSource.local.ShoppingBagLocalDataSource
 import com.thiago.ecommerceappmvvm.data.dataSource.local.ShoppingBagLocalDataSourceImpl
+import com.thiago.ecommerceappmvvm.data.dataSource.local.dao.AddressDao
 import com.thiago.ecommerceappmvvm.data.dataSource.local.dao.CategoriesDao
 import com.thiago.ecommerceappmvvm.data.dataSource.local.dao.ProductsDao
 import com.thiago.ecommerceappmvvm.data.dataSource.local.dao.ShoppingBagDao
@@ -36,5 +39,7 @@ object LocalDataModule {
     @Provides
     fun provideShoppingBagLocalDataSource(shoppingBagDao: ShoppingBagDao): ShoppingBagLocalDataSource = ShoppingBagLocalDataSourceImpl(shoppingBagDao)
 
+    @Provides
+    fun provideAddressLocalDataSource(addressDao: AddressDao): AddressLocalDataSource = AddressLocalDataSourceImpl(addressDao)
 
 }

@@ -2,6 +2,7 @@ package com.thiago.ecommerceappmvvm.di
 
 import com.thiago.ecommerceappmvvm.core.Config
 import com.thiago.ecommerceappmvvm.data.dataSource.local.datastore.AuthDatastore
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.AddressService
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.AuthService
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.CategoriesService
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.ProductsService
@@ -67,4 +68,11 @@ object NetworkModule {
     fun provideProductsService(retrofit: Retrofit): ProductsService {
         return retrofit.create(ProductsService::class.java)
     }
+
+    @Provides
+    @Singleton
+    fun provideAddressService(retrofit: Retrofit): AddressService {
+        return retrofit.create(AddressService::class.java)
+    }
+
 }

@@ -1,5 +1,7 @@
 package com.thiago.ecommerceappmvvm.di
 
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.AddressRemoteDataSource
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.AddressRemoteDataSourceImpl
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.AuthRemoteDataSource
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.CategoriesRemoteDataSource
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.UsersRemoteDataSource
@@ -8,6 +10,7 @@ import com.thiago.ecommerceappmvvm.data.dataSource.remote.CategoriesRemoteDataSo
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.ProductsRemoteDataSource
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.ProductsRemoteDataSourceImpl
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.UsersRemoteDataSourceImpl
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.AddressService
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.AuthService
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.CategoriesService
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.ProductsService
@@ -32,4 +35,8 @@ object RemoteDataModule {
 
     @Provides
     fun provideProductsRemoteDataSource(productsService: ProductsService): ProductsRemoteDataSource = ProductsRemoteDataSourceImpl(productsService)
+
+    @Provides
+    fun provideAddressRemoteDataSource(addressService: AddressService): AddressRemoteDataSource = AddressRemoteDataSourceImpl(addressService)
+
 }

@@ -1,10 +1,14 @@
 package com.thiago.ecommerceappmvvm.di
 
+import com.thiago.ecommerceappmvvm.domain.repository.AddressRepository
 import com.thiago.ecommerceappmvvm.domain.repository.AuthRepository
 import com.thiago.ecommerceappmvvm.domain.repository.CategoriesRepository
 import com.thiago.ecommerceappmvvm.domain.repository.ProductsRepository
 import com.thiago.ecommerceappmvvm.domain.repository.ShoppingBagRepository
 import com.thiago.ecommerceappmvvm.domain.repository.UsersRepository
+import com.thiago.ecommerceappmvvm.domain.useCase.address.AddressUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.address.CreateAddressUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.address.FindByUserAddressUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.auth.AuthUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.auth.GetSessionDataUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.auth.LoginUseCase
@@ -89,4 +93,12 @@ object UseCaseModule {
         findById = FindByIdShoppingBagUseCase(shoppingBagRepository),
         getTotal = GetTotalUseCase(shoppingBagRepository)
     )
+
+
+    @Provides
+    fun provideAddressUseCase(addressRepository: AddressRepository) = AddressUseCase(
+        createAddress = CreateAddressUseCase(addressRepository),
+        findByUserAddress = FindByUserAddressUseCase(addressRepository)
+    )
+
 }

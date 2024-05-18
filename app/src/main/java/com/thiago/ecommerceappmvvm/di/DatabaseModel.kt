@@ -2,6 +2,7 @@ package com.thiago.ecommerceappmvvm.di
 
 import android.app.Application
 import androidx.room.Room
+import com.thiago.ecommerceappmvvm.data.dataSource.local.dao.AddressDao
 import com.thiago.ecommerceappmvvm.data.dataSource.local.dao.CategoriesDao
 import com.thiago.ecommerceappmvvm.data.dataSource.local.dao.ProductsDao
 import com.thiago.ecommerceappmvvm.data.dataSource.local.dao.ShoppingBagDao
@@ -33,5 +34,9 @@ object DatabaseModel {
     fun provideShoppingBagDao(db: EcommerceDB): ShoppingBagDao = db.shoppingBagDao()
 
 
+
+    @Provides
+    @Singleton
+    fun provideAddressDao(db: EcommerceDB): AddressDao = db.addressDao()
 
 }

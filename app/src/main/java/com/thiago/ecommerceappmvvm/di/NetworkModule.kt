@@ -5,6 +5,7 @@ import com.thiago.ecommerceappmvvm.data.dataSource.local.datastore.AuthDatastore
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.AddressService
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.AuthService
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.CategoriesService
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.MercadoPagoService
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.ProductsService
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.UsersService
 import dagger.Module
@@ -74,5 +75,18 @@ object NetworkModule {
     fun provideAddressService(retrofit: Retrofit): AddressService {
         return retrofit.create(AddressService::class.java)
     }
+
+    @Provides
+    @Singleton
+    fun provideMercadoPagoService(retrofit: Retrofit): MercadoPagoService {
+        return retrofit.create(MercadoPagoService::class.java)
+    }
+
+//    @Provides
+//    @Singleton
+//    fun provideOrdersService(retrofit: Retrofit): OrdersService {
+//        return retrofit.create(OrdersService::class.java)
+//    }
+
 
 }

@@ -6,6 +6,7 @@ import com.thiago.ecommerceappmvvm.presentation.navigation.Graph
 import com.thiago.ecommerceappmvvm.presentation.navigation.screen.client.ShoppingBagScreen
 import com.thiago.ecommerceappmvvm.presentation.screens.client.address.create.ClientAddressCreateScreen
 import com.thiago.ecommerceappmvvm.presentation.screens.client.address.list.ClientAddressListScreen
+import com.thiago.ecommerceappmvvm.presentation.screens.client.payments.form.ClientPaymentsFormScreen
 import com.thiago.ecommerceappmvvm.presentation.screens.client.shopping_bag.ClientShoppingBagScreen
 
 fun NavGraphBuilder.ShoppingBagNavGraph(navController: NavHostController) {
@@ -32,7 +33,7 @@ fun NavGraphBuilder.ShoppingBagNavGraph(navController: NavHostController) {
         composable(
             route = ShoppingBagScreen.PaymentsForm.route,
         ) {
-       //     ClientPaymentsFormScreen(navController)
+          ClientPaymentsFormScreen(navController)
         }
         composable(
             route = ShoppingBagScreen.PaymentsInstallments.route,

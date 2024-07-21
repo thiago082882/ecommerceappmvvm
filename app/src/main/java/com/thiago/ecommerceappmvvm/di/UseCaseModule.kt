@@ -3,6 +3,7 @@ package com.thiago.ecommerceappmvvm.di
 import com.thiago.ecommerceappmvvm.domain.repository.AddressRepository
 import com.thiago.ecommerceappmvvm.domain.repository.AuthRepository
 import com.thiago.ecommerceappmvvm.domain.repository.CategoriesRepository
+import com.thiago.ecommerceappmvvm.domain.repository.MercadoPagoRepository
 import com.thiago.ecommerceappmvvm.domain.repository.ProductsRepository
 import com.thiago.ecommerceappmvvm.domain.repository.ShoppingBagRepository
 import com.thiago.ecommerceappmvvm.domain.repository.UsersRepository
@@ -22,6 +23,11 @@ import com.thiago.ecommerceappmvvm.domain.useCase.categories.DeleteCategoryUseCa
 import com.thiago.ecommerceappmvvm.domain.useCase.categories.GetCategoriesUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.categories.UpdateCategoryUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.categories.UpdateCategoryWithImageUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.mercado_pago.CreateCardTokenUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.mercado_pago.CreatePaymentUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.mercado_pago.GetIdentificationTypeUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.mercado_pago.GetInstallmentsUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.mercado_pago.MercadoPagoUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.products.CreateProductUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.products.DeleteProductUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.products.FindAllUseCase
@@ -100,5 +106,21 @@ object UseCaseModule {
         createAddress = CreateAddressUseCase(addressRepository),
         findByUserAddress = FindByUserAddressUseCase(addressRepository)
     )
+
+    @Provides
+    fun provideMercadoPagoUseCase(mercadoPagoRepository: MercadoPagoRepository) = MercadoPagoUseCase(
+        getIdentificationType = GetIdentificationTypeUseCase(mercadoPagoRepository),
+        getInstallments = GetInstallmentsUseCase(mercadoPagoRepository),
+        createCardToken = CreateCardTokenUseCase(mercadoPagoRepository),
+        createPayment = CreatePaymentUseCase(mercadoPagoRepository),
+    )
+
+//    @Provides
+//    fun provideOrdersUseCase(ordersRepository: OrdersRepository) = OrdersUseCase(
+//        findAllOrders = FindAllOrdersUseCase(ordersRepository),
+//        findByClientOrders = FindByClientOrdersUseCase(ordersRepository),
+//        updateStatusOrders = UpdateStatusOrdersUseCase(ordersRepository)
+//    )
+
 
 }

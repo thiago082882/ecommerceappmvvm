@@ -13,6 +13,8 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.sp
 import com.thiago.ecommerceappmvvm.presentation.ui.theme.Blue500
 
 @Composable
@@ -23,7 +25,8 @@ fun DefaultTextField (
     label : String,
     icon : ImageVector,
     keyboardType: KeyboardType =  KeyboardType.Text,
-    hideText : Boolean = false
+    hideText : Boolean = false,
+    fontSize : TextUnit = 15.sp
 
 ) {
 
@@ -34,7 +37,7 @@ fun DefaultTextField (
             onValueChange(it)
         },
         label = {
-            Text(text = label)
+            Text(text = label,fontSize=fontSize)
         },
         leadingIcon = {
             Icon(

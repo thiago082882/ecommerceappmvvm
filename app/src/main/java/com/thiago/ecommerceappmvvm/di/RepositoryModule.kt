@@ -11,14 +11,17 @@ import com.thiago.ecommerceappmvvm.data.dataSource.local.ShoppingBagLocalDataSou
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.AddressRemoteDataSource
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.AuthRemoteDataSource
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.CategoriesRemoteDataSource
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.MercadoPagoRemoteDataSource
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.ProductsRemoteDataSource
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.UsersRemoteDataSource
 import com.thiago.ecommerceappmvvm.data.repository.AddressRepositoryImpl
+import com.thiago.ecommerceappmvvm.data.repository.MercadoPagoRepositoryImpl
 import com.thiago.ecommerceappmvvm.data.repository.ProductsRepositoryImpl
 import com.thiago.ecommerceappmvvm.data.repository.ShoppingBagRepositoryImpl
 import com.thiago.ecommerceappmvvm.domain.repository.AddressRepository
 import com.thiago.ecommerceappmvvm.domain.repository.AuthRepository
 import com.thiago.ecommerceappmvvm.domain.repository.CategoriesRepository
+import com.thiago.ecommerceappmvvm.domain.repository.MercadoPagoRepository
 import com.thiago.ecommerceappmvvm.domain.repository.ProductsRepository
 import com.thiago.ecommerceappmvvm.domain.repository.ShoppingBagRepository
 import com.thiago.ecommerceappmvvm.domain.repository.UsersRepository
@@ -62,5 +65,16 @@ object RepositoryModule {
         addressRemoteDataSource: AddressRemoteDataSource,
         addressLocalDataSource: AddressLocalDataSource
     ): AddressRepository = AddressRepositoryImpl(addressRemoteDataSource, addressLocalDataSource)
+
+    @Provides
+    fun provideMercadoPagoRepository(
+        mercadoPagoRemoteDataSource: MercadoPagoRemoteDataSource
+    ): MercadoPagoRepository = MercadoPagoRepositoryImpl(mercadoPagoRemoteDataSource)
+
+//    @Provides
+//    fun provideOrdersRepository(
+//        ordersRemoteDataSource: OrdersRemoteDataSource
+//    ): OrdersRepository = OrdersRepositoryImpl(ordersRemoteDataSource)
+
 
 }

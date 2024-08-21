@@ -5,7 +5,7 @@ import com.google.gson.JsonObject
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-data class PaymentResponse (
+data class PaymentResponse(
     val id: Long,
 
     @SerializedName("date_created")
@@ -64,7 +64,7 @@ data class PaymentResponse (
     val moneyReleaseSchema: Any? = null,
 
     @SerializedName("taxes_amount")
-    val taxesAmount: Long,
+    val taxesAmount: Double,
 
     @SerializedName("counter_currency")
     val counterCurrency: Any? = null,
@@ -73,7 +73,7 @@ data class PaymentResponse (
     val brandID: Any? = null,
 
     @SerializedName("shipping_amount")
-    val shippingAmount: Long,
+    val shippingAmount: Double,
 
     @SerializedName("build_version")
     val buildVersion: String,
@@ -113,18 +113,18 @@ data class PaymentResponse (
     val externalReference: Any? = null,
 
     @SerializedName("transaction_amount")
-    val transactionAmount: Long,
+    val transactionAmount: Double,
 
     @SerializedName("net_amount")
-    val netAmount: Long,
+    val netAmount: Double,
 
     val taxes: List<Tax>,
 
     @SerializedName("transaction_amount_refunded")
-    val transactionAmountRefunded: Long,
+    val transactionAmountRefunded: Double,
 
     @SerializedName("coupon_amount")
-    val couponAmount: Long,
+    val couponAmount: Double,
 
     @SerializedName("differential_pricing_id")
     val differentialPricingID: Any? = null,
@@ -135,7 +135,7 @@ data class PaymentResponse (
     @SerializedName("deduction_schema")
     val deductionSchema: Any? = null,
 
-    val installments: Long,
+    val installments: Double,
 
     @SerializedName("transaction_details")
     val transactionDetails: TransactionDetails,
@@ -188,7 +188,7 @@ data class PaymentResponse (
     }
 }
 
-data class AdditionalInfo (
+data class AdditionalInfo(
     @SerializedName("available_balance")
     val availableBalance: Any? = null,
 
@@ -199,7 +199,7 @@ data class AdditionalInfo (
     val authenticationCode: Any? = null
 )
 
-data class Card (
+data class Card(
     val id: Any? = null,
 
     @SerializedName("first_six_digits")
@@ -209,10 +209,10 @@ data class Card (
     val lastFourDigits: String,
 
     @SerializedName("expiration_month")
-    val expirationMonth: Long,
+    val expirationMonth: Double,
 
     @SerializedName("expiration_year")
-    val expirationYear: Long,
+    val expirationYear: Double,
 
     @SerializedName("date_created")
     val dateCreated: String,
@@ -223,10 +223,9 @@ data class Card (
     val cardholder: Cardholder
 )
 
-
-data class FeeDetail (
+data class FeeDetail(
     val type: String,
-    val amount: Long,
+    val amount: Double,
 
     @SerializedName("fee_payer")
     val feePayer: String
@@ -234,7 +233,7 @@ data class FeeDetail (
 
 typealias Metadata = JsonObject
 
-data class PayerPayment (
+data class PayerPayment(
     @SerializedName("first_name")
     val firstName: Any? = null,
 
@@ -252,7 +251,7 @@ data class PayerPayment (
     val id: String
 )
 
-data class Phone (
+data class Phone(
     @SerializedName("area_code")
     val areaCode: Any? = null,
 
@@ -260,31 +259,31 @@ data class Phone (
     val extension: Any? = null
 )
 
-data class PaymentMethod (
+data class PaymentMethod(
     val id: String,
     val type: String
 )
 
-data class PointOfInteraction (
+data class PointOfInteraction(
     val type: String,
 
     @SerializedName("business_info")
     val businessInfo: BusinessInfo
 )
 
-data class BusinessInfo (
+data class BusinessInfo(
     val unit: String,
 
     @SerializedName("sub_unit")
     val subUnit: String
 )
 
-data class Tax (
-    val value: Long,
+data class Tax(
+    val value: Double,
     val type: String
 )
 
-data class TransactionDetails (
+data class TransactionDetails(
     @SerializedName("payment_method_reference_id")
     val paymentMethodReferenceID: Any? = null,
 
@@ -292,13 +291,13 @@ data class TransactionDetails (
     val acquirerReference: Any? = null,
 
     @SerializedName("net_received_amount")
-    val netReceivedAmount: Long,
+    val netReceivedAmount: Double,
 
     @SerializedName("total_paid_amount")
-    val totalPaidAmount: Long,
+    val totalPaidAmount: Double,
 
     @SerializedName("overpaid_amount")
-    val overpaidAmount: Long,
+    val overpaidAmount: Double,
 
     @SerializedName("external_resource_url")
     val externalResourceURL: Any? = null,

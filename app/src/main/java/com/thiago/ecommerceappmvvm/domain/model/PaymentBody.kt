@@ -1,10 +1,7 @@
-package com.optic.ecommerceappmvvm.domain.model
+package com.thiago.ecommerceappmvvm.domain.model
 
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
-import com.squareup.moshi.Json
-import com.thiago.ecommerceappmvvm.domain.model.Identification
-import com.thiago.ecommerceappmvvm.domain.model.Order
 import java.io.Serializable
 
 data class PaymentBody (

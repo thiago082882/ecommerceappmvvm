@@ -1,7 +1,7 @@
 package com.thiago.ecommerceappmvvm.data.repository
 
-import com.optic.ecommerceappmvvm.domain.model.CardTokenResponse
-import com.optic.ecommerceappmvvm.domain.model.PaymentBody
+import com.thiago.ecommerceappmvvm.domain.model.CardTokenResponse
+import com.thiago.ecommerceappmvvm.domain.model.PaymentBody
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.MercadoPagoRemoteDataSource
 import com.thiago.ecommerceappmvvm.domain.model.CardTokenBody
 import com.thiago.ecommerceappmvvm.domain.model.IdentificationType
@@ -12,6 +12,7 @@ import com.thiago.ecommerceappmvvm.domain.util.Resource
 import com.thiago.ecommerceappmvvm.domain.util.ResponseToRequest
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import java.util.UUID
 
 class MercadoPagoRepositoryImpl(private val remoteDataSource: MercadoPagoRemoteDataSource) :
     MercadoPagoRepository {
@@ -29,8 +30,13 @@ class MercadoPagoRepositoryImpl(private val remoteDataSource: MercadoPagoRemoteD
             remoteDataSource.createCardToken(cardTokenBody)
         )
 
-    override suspend fun createPayment(paymentBody: PaymentBody): Resource<PaymentResponse> =
-        ResponseToRequest.send(
-            remoteDataSource.createPayment(paymentBody)
-        )
+//    override suspend fun createPayment(paymentBody: PaymentBody): Resource<PaymentResponse> =
+//        ResponseToRequest.send(
+//            remoteDataSource.createPayment(paymentBody)
+//        )
+override suspend fun createPayment(idempotencyKey: String, paymentBody: PaymentBody): Resource<PaymentResponse> =
+    ResponseToRequest.send(
+        remoteDataSource.createPayment(idempotencyKey, paymentBody)
+    )
+
 }

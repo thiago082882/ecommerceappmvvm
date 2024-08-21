@@ -13,13 +13,16 @@ import com.thiago.ecommerceappmvvm.presentation.components.ProgressBar
 import com.thiago.ecommerceappmvvm.presentation.screens.client.payments.form.ClientPaymentsFormViewModel
 
 @Composable
-fun GetIdentificationTypes(paddingValues: PaddingValues, vm: ClientPaymentsFormViewModel = hiltViewModel()) {
+fun GetIdentificationTypes(paddingValues: PaddingValues,navController: NavHostController, vm: ClientPaymentsFormViewModel = hiltViewModel()) {
     when(val response = vm.identificationTypeResponse) {
         Resource.Loading -> {
             ProgressBar()
         }
         is Resource.Success -> {
-           ClientPaymentsFormContent(paddingValues = paddingValues, identificationType =response.data.map {identificationType-> identificationType.id
+           ClientPaymentsFormContent(
+               paddingValues = paddingValues,
+               navController=navController,
+               identificationType =response.data.map {identificationType-> identificationType.id
 
 
            } )

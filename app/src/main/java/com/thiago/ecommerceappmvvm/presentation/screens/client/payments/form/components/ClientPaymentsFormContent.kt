@@ -6,13 +6,16 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.DropdownMenuItem
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ExposedDropdownMenuBox
 import androidx.compose.material.ExposedDropdownMenuDefaults
+import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
+import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.List
@@ -25,30 +28,31 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
 import com.thiago.ecommerceappmvvm.presentation.components.DefaultButton
 import com.thiago.ecommerceappmvvm.presentation.components.DefaultTextField
+import com.thiago.ecommerceappmvvm.presentation.navigation.screen.client.ShoppingBagScreen
 import com.thiago.ecommerceappmvvm.presentation.screens.client.payments.form.ClientPaymentsFormViewModel
+import com.thiago.ecommerceappmvvm.presentation.screens.client.payments.form.mapper.toCardTokenBody
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun ClientPaymentsFormContent(
     paddingValues: PaddingValues,
+    navController: NavHostController,
     identificationType: List<String>,
     vm: ClientPaymentsFormViewModel = hiltViewModel()
 ) {
 
     val state = vm.state
-
+    var selectedItem by remember { mutableStateOf(identificationType[0]) }
+    vm.onIdentificationTypeInput(selectedItem)
     var expanded by remember { mutableStateOf(false) }
-
-    var selectedItem by remember {
-        mutableStateOf(identificationType[0])
-
-    }
 
     Column(
         modifier = Modifier
@@ -64,6 +68,7 @@ fun ClientPaymentsFormContent(
             icon = Icons.Default.Settings,
             keyboardType = KeyboardType.Number
         )
+        Spacer(modifier = Modifier.height(5.dp))
 
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -78,6 +83,8 @@ fun ClientPaymentsFormContent(
                 keyboardType = KeyboardType.Number,
                 fontSize = 12.sp
             )
+            Spacer(modifier = Modifier.height(5.dp))
+
             DefaultTextField(
                 modifier = Modifier.weight(1f),
                 value = state.expirationMonth,
@@ -88,6 +95,8 @@ fun ClientPaymentsFormContent(
                 fontSize = 12.sp
             )
         }
+        Spacer(modifier = Modifier.height(5.dp))
+
         DefaultTextField(
             modifier = Modifier.fillMaxWidth(),
             value = state.name,
@@ -95,6 +104,7 @@ fun ClientPaymentsFormContent(
             label = "Nome do titular",
             icon = Icons.Default.Person
         )
+        Spacer(modifier = Modifier.height(5.dp))
 
         DefaultTextField(
             modifier = Modifier.fillMaxWidth(),
@@ -103,14 +113,14 @@ fun ClientPaymentsFormContent(
             label = "Código de segurança",
             icon = Icons.Default.Lock
         )
-
+        Spacer(modifier = Modifier.height(5.dp))
         ExposedDropdownMenuBox(
             expanded = expanded,
             onExpandedChange = {
                 expanded = !expanded
             }
         ) {
-            TextField(
+           OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),
                 value = selectedItem,
                 onValueChange = {},
@@ -121,22 +131,28 @@ fun ClientPaymentsFormContent(
                 trailingIcon = {
                     ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded)
                 },
-                colors = ExposedDropdownMenuDefaults.textFieldColors()
+                colors = TextFieldDefaults.textFieldColors(
+                    backgroundColor = Color.White
+                )
             )
             ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
                 identificationType.forEachIndexed { index, identification ->
-                    DropdownMenuItem(onClick = {
-                        selectedItem = identification
-                        expanded = false
-                    }) {
+                    DropdownMenuItem(
+                        onClick = {
+                            selectedItem = identification
+                            vm.onIdentificationTypeInput(selectedItem)
+                            expanded = false
+                        }
+                    ) {
                         Text(text = identification)
                     }
                 }
             }
         }
+        Spacer(modifier = Modifier.height(5.dp))
         DefaultTextField(
             modifier = Modifier.fillMaxWidth(),
-            value = state.securityCode,
+            value = state.number,
             onValueChange = { vm.onIdentificationNumberInput(it) },
             label = "Número de identificação",
             icon = Icons.Default.List,
@@ -146,8 +162,12 @@ fun ClientPaymentsFormContent(
         DefaultButton(
             modifier = Modifier.fillMaxWidth(),
             text = "Continuar",
-            onClick = { /*TODO*/ })
+            onClick = {
+                navController.navigate(route = ShoppingBagScreen.PaymentsInstallments.passPaymentForm(state.toCardTokenBody().toJson())) {
+                    popUpTo(ShoppingBagScreen.PaymentsForm.route) { inclusive = true }
+                }
+            }
+        )
 
     }
-
 }

@@ -1,8 +1,7 @@
-package com.optic.ecommerceappmvvm.domain.model
+package com.thiago.ecommerceappmvvm.domain.model
 
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
-import com.thiago.ecommerceappmvvm.domain.model.Cardholder
 import java.io.Serializable
 
 data class CardTokenResponse (

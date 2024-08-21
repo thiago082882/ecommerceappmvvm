@@ -23,6 +23,6 @@ Scaffold(
    } 
 ) { paddingValues ->
 
-    GetIdentificationTypes(paddingValues = paddingValues)
+    GetIdentificationTypes(paddingValues = paddingValues, navController = navController)
 }
 }

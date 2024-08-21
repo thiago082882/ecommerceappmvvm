@@ -7,6 +7,8 @@ import com.thiago.ecommerceappmvvm.presentation.navigation.screen.client.Shoppin
 import com.thiago.ecommerceappmvvm.presentation.screens.client.address.create.ClientAddressCreateScreen
 import com.thiago.ecommerceappmvvm.presentation.screens.client.address.list.ClientAddressListScreen
 import com.thiago.ecommerceappmvvm.presentation.screens.client.payments.form.ClientPaymentsFormScreen
+import com.thiago.ecommerceappmvvm.presentation.screens.client.payments.installments.ClientPaymentsInstallmentsScreen
+import com.thiago.ecommerceappmvvm.presentation.screens.client.payments.status.ClientPaymentsStatusScreen
 import com.thiago.ecommerceappmvvm.presentation.screens.client.shopping_bag.ClientShoppingBagScreen
 
 fun NavGraphBuilder.ShoppingBagNavGraph(navController: NavHostController) {
@@ -42,7 +44,7 @@ fun NavGraphBuilder.ShoppingBagNavGraph(navController: NavHostController) {
             })
         ) {
             it.arguments?.getString("payment_form")?.let {
-           //     ClientPaymentsInstallmentsScreen(navController, it)
+               ClientPaymentsInstallmentsScreen(navController, it)
             }
         }
         composable(
@@ -52,7 +54,7 @@ fun NavGraphBuilder.ShoppingBagNavGraph(navController: NavHostController) {
             })
         ) {
             it.arguments?.getString("payment_response")?.let {
-             //   ClientPaymentsStatusScreen(navController, it)
+               ClientPaymentsStatusScreen(navController, it)
             }
         }
 

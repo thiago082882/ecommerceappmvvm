@@ -1,13 +1,15 @@
 package com.thiago.ecommerceappmvvm.data.dataSource.remote.service
 
-import com.optic.ecommerceappmvvm.domain.model.*
 import com.thiago.ecommerceappmvvm.domain.model.CardTokenBody
+import com.thiago.ecommerceappmvvm.domain.model.CardTokenResponse
 import com.thiago.ecommerceappmvvm.domain.model.IdentificationType
 import com.thiago.ecommerceappmvvm.domain.model.Installment
+import com.thiago.ecommerceappmvvm.domain.model.PaymentBody
 import com.thiago.ecommerceappmvvm.domain.model.PaymentResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.Path
 
@@ -29,6 +31,7 @@ interface MercadoPagoService {
 
     @POST("mercadopago/payments")
     suspend fun createPayment(
+        @Header("X-Idempotency-Key") idempotencyKey: String,
         @Body paymentBody: PaymentBody
     ): Response<PaymentResponse>
 

@@ -12,16 +12,19 @@ import com.thiago.ecommerceappmvvm.data.dataSource.remote.AddressRemoteDataSourc
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.AuthRemoteDataSource
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.CategoriesRemoteDataSource
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.MercadoPagoRemoteDataSource
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.OrdersRemoteDataSource
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.ProductsRemoteDataSource
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.UsersRemoteDataSource
 import com.thiago.ecommerceappmvvm.data.repository.AddressRepositoryImpl
 import com.thiago.ecommerceappmvvm.data.repository.MercadoPagoRepositoryImpl
+import com.thiago.ecommerceappmvvm.data.repository.OrdersRepositoryImpl
 import com.thiago.ecommerceappmvvm.data.repository.ProductsRepositoryImpl
 import com.thiago.ecommerceappmvvm.data.repository.ShoppingBagRepositoryImpl
 import com.thiago.ecommerceappmvvm.domain.repository.AddressRepository
 import com.thiago.ecommerceappmvvm.domain.repository.AuthRepository
 import com.thiago.ecommerceappmvvm.domain.repository.CategoriesRepository
 import com.thiago.ecommerceappmvvm.domain.repository.MercadoPagoRepository
+import com.thiago.ecommerceappmvvm.domain.repository.OrdersRepository
 import com.thiago.ecommerceappmvvm.domain.repository.ProductsRepository
 import com.thiago.ecommerceappmvvm.domain.repository.ShoppingBagRepository
 import com.thiago.ecommerceappmvvm.domain.repository.UsersRepository
@@ -71,10 +74,10 @@ object RepositoryModule {
         mercadoPagoRemoteDataSource: MercadoPagoRemoteDataSource
     ): MercadoPagoRepository = MercadoPagoRepositoryImpl(mercadoPagoRemoteDataSource)
 
-//    @Provides
-//    fun provideOrdersRepository(
-//        ordersRemoteDataSource: OrdersRemoteDataSource
-//    ): OrdersRepository = OrdersRepositoryImpl(ordersRemoteDataSource)
+    @Provides
+    fun provideOrdersRepository(
+        ordersRemoteDataSource: OrdersRemoteDataSource
+    ): OrdersRepository = OrdersRepositoryImpl(ordersRemoteDataSource)
 
 
 }

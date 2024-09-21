@@ -9,6 +9,8 @@ import com.thiago.ecommerceappmvvm.data.dataSource.remote.AuthRemoteDataSourceIm
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.CategoriesRemoteDataSourceImpl
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.MercadoPagoRemoteDataSource
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.MercadoPagoRemoteDataSourceImpl
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.OrdersRemoteDataSource
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.OrdersRemoteDataSourceImpl
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.ProductsRemoteDataSource
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.ProductsRemoteDataSourceImpl
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.UsersRemoteDataSourceImpl
@@ -16,6 +18,7 @@ import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.AddressService
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.AuthService
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.CategoriesService
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.MercadoPagoService
+import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.OrdersService
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.ProductsService
 import com.thiago.ecommerceappmvvm.data.dataSource.remote.service.UsersService
 import dagger.Module
@@ -45,7 +48,7 @@ object RemoteDataModule {
     @Provides
     fun provideMercadoPagoRemoteDataSource(mercadoPagoService: MercadoPagoService): MercadoPagoRemoteDataSource = MercadoPagoRemoteDataSourceImpl(mercadoPagoService)
 
-//    @Provides
-//    fun provideOrdersRemoteDataSource(ordersService: OrdersService): OrdersRemoteDataSource = OrdersRemoteDataSourceImpl(ordersService)
+    @Provides
+    fun provideOrdersRemoteDataSource(ordersService: OrdersService): OrdersRemoteDataSource = OrdersRemoteDataSourceImpl(ordersService)
 
 }

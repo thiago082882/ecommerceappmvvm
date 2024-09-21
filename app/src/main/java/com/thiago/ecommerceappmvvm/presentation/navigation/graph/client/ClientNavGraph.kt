@@ -8,6 +8,7 @@ import com.thiago.ecommerceappmvvm.presentation.navigation.Graph
 import com.thiago.ecommerceappmvvm.presentation.navigation.graph.profile.ProfileNavGraph
 import com.thiago.ecommerceappmvvm.presentation.navigation.screen.client.ClientScreen
 import com.thiago.ecommerceappmvvm.presentation.screens.client.category.list.ClientCategoryListScreen
+import com.thiago.ecommerceappmvvm.presentation.screens.client.order.list.ClientOrderListScreen
 import com.thiago.ecommerceappmvvm.presentation.screens.client.product.list.ClientProductListScreen
 import com.thiago.ecommerceappmvvm.presentation.screens.profile.info.ProfileScreen
 
@@ -28,6 +29,10 @@ fun ClientNavGraph(navController: NavHostController) {
         composable(route = ClientScreen.categoryList.route) {
             ClientCategoryListScreen(navController)
         }
+        composable(route = ClientScreen.OrderList.route) {
+            ClientOrderListScreen(navController)
+        }
+
 
         composable(route = ClientScreen.Profile.route) {
             ProfileScreen(navController)
@@ -36,6 +41,7 @@ fun ClientNavGraph(navController: NavHostController) {
         ClientCategoryNavGraph(navController)
         ClientProductNavGraph(navController)
         ShoppingBagNavGraph(navController)
+        ClientOrderNavGraph(navController)
 
     }
 }

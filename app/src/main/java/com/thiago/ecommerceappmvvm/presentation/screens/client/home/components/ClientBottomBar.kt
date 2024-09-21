@@ -12,6 +12,7 @@ fun ClientBottomBar(navController: NavHostController) {
     val screens = listOf(
         ClientScreen.productList,
         ClientScreen.categoryList,
+        ClientScreen.OrderList,
         ClientScreen.Profile
     )
 

@@ -4,6 +4,7 @@ import com.thiago.ecommerceappmvvm.domain.repository.AddressRepository
 import com.thiago.ecommerceappmvvm.domain.repository.AuthRepository
 import com.thiago.ecommerceappmvvm.domain.repository.CategoriesRepository
 import com.thiago.ecommerceappmvvm.domain.repository.MercadoPagoRepository
+import com.thiago.ecommerceappmvvm.domain.repository.OrdersRepository
 import com.thiago.ecommerceappmvvm.domain.repository.ProductsRepository
 import com.thiago.ecommerceappmvvm.domain.repository.ShoppingBagRepository
 import com.thiago.ecommerceappmvvm.domain.repository.UsersRepository
@@ -28,6 +29,10 @@ import com.thiago.ecommerceappmvvm.domain.useCase.mercado_pago.CreatePaymentUseC
 import com.thiago.ecommerceappmvvm.domain.useCase.mercado_pago.GetIdentificationTypeUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.mercado_pago.GetInstallmentsUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.mercado_pago.MercadoPagoUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.orders.FindAllOrdersUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.orders.FindByClientOrdersUseCase
+import com.thiago.ecommerceappmvvm.domain.useCase.orders.OrdersUseCases
+import com.thiago.ecommerceappmvvm.domain.useCase.orders.UpdateStatusOrdersUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.products.CreateProductUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.products.DeleteProductUseCase
 import com.thiago.ecommerceappmvvm.domain.useCase.products.FindAllUseCase
@@ -115,12 +120,12 @@ object UseCaseModule {
         createPayment = CreatePaymentUseCase(mercadoPagoRepository),
     )
 
-//    @Provides
-//    fun provideOrdersUseCase(ordersRepository: OrdersRepository) = OrdersUseCase(
-//        findAllOrders = FindAllOrdersUseCase(ordersRepository),
-//        findByClientOrders = FindByClientOrdersUseCase(ordersRepository),
-//        updateStatusOrders = UpdateStatusOrdersUseCase(ordersRepository)
-//    )
+    @Provides
+    fun provideOrdersUseCase(ordersRepository: OrdersRepository) = OrdersUseCases(
+        findAllOrdersUseCase = FindAllOrdersUseCase(ordersRepository),
+        findByClientOrdersUseCase = FindByClientOrdersUseCase(ordersRepository),
+        updateStatusOrdersUseCase = UpdateStatusOrdersUseCase(ordersRepository)
+    )
 
 
 }

@@ -1,6 +1,7 @@
 package com.thiago.ecommerceappmvvm.presentation.navigation.screen.admin
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.ThumbUp
@@ -11,11 +12,18 @@ sealed class AdminScreen(
     val title : String,
     val icon:ImageVector
 ){
+    object  orderList : AdminScreen(
+        route = "admin/order/list",
+        title = "Pedidos",
+        icon = Icons.Default.Info
+    )
+
     object  categoryList : AdminScreen(
         route = "admin/category/list",
         title = "categorias",
         icon = Icons.Default.List
     )
+
 //    object  productList : AdminScreen(
 //        route = "admin/product/list",
 //        title = "produtos",
@@ -23,7 +31,7 @@ sealed class AdminScreen(
 //    )
     object  Profile : AdminScreen(
         route = "admin/profile/list",
-        title = "categorias",
+        title = "Perfil",
         icon = Icons.Default.Person
     )
 }

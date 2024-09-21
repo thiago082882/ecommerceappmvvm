@@ -8,7 +8,7 @@ import com.thiago.ecommerceappmvvm.presentation.navigation.Graph
 import com.thiago.ecommerceappmvvm.presentation.navigation.graph.profile.ProfileNavGraph
 import com.thiago.ecommerceappmvvm.presentation.navigation.screen.admin.AdminScreen
 import com.thiago.ecommerceappmvvm.presentation.screens.admin.category.list.AdminCategoryListScreen
-import com.thiago.ecommerceappmvvm.presentation.screens.admin.product.list.AdminProductListScreen
+import com.thiago.ecommerceappmvvm.presentation.screens.admin.order.AdminOrderListScreen
 import com.thiago.ecommerceappmvvm.presentation.screens.profile.info.ProfileScreen
 
 
@@ -29,11 +29,16 @@ fun AdminNavGraph(navController: NavHostController) {
             AdminCategoryListScreen(navController)
         }
 
+        composable(route = AdminScreen.orderList.route) {
+           AdminOrderListScreen(navController)
+        }
+
         composable(route = AdminScreen.Profile.route) {
             ProfileScreen(navController)
         }
 
         ProfileNavGraph(navController)
         AdminCategoryNavGraph(navController)
+        AdminOrderNavGraph(navController)
     }
 }

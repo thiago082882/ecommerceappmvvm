@@ -32,7 +32,7 @@ fun DefaultSearchView(
                 },
                 label = {
                     Text(
-                        text = "Buscar producto",
+                        text = "Buscar produto",
                         fontSize = 15.sp
                     )
                 },
